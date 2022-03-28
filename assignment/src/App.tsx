@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
-import { NavLink, Route, Routes } from 'react-router-dom'
+import { Navigate, NavLink, Route, Routes } from 'react-router-dom'
+import Dashboard from './pages/Dashboard'
 import Home from './pages/Home'
+import LayoutAdmin from './pages/layout/LayoutAdmin'
 import LayoutHome from './pages/layout/LayoutHome'
 import News from './pages/News'
 import ProductList from './pages/ProductList'
@@ -44,19 +46,21 @@ function App() {
   return (
     <div className="App">
 
-      
+
 
       <main>
-          <Routes>
-            <Route path="/" element={ < LayoutHome /> }>
-                <Route index element={ < Home />}/>
-                <Route path='/news' element={ < News />} />
-                <Route path='/products'element={ < ProductList />} />
-            </Route>
-            {/* <Route path='/admin' element={}> */}
-
-            {/* </Route> */}
-          </Routes>
+        <Routes>
+          <Route path="/" element={<LayoutHome />}>
+            <Route index element={<Home />} />
+            <Route path='news' element={<News />} />
+            <Route path='products' element={<ProductList />} />
+          </Route>
+          <Route path='/admin' element={<LayoutAdmin />}>
+            <Route index element={ <Navigate to="dashboard" />} />
+              <Route path='dashboard' element={<Dashboard />} />
+            <Route path='products' element={<ProductList />} />
+          </Route>
+        </Routes>
 
         {/* <Routes>
           <Route path="/" element={ < Websitelayout />}>
