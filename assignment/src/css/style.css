@@ -1,0 +1,367 @@
+body {
+    font-family: Source Sans Pro;
+}
+
+a { 
+    text-decoration: none;
+}
+.text-center { 
+    text-align: center;
+}
+/*Topbar*/
+.top-bar {
+    background: #000;
+    padding: 10px 0px;
+    color: #ccc;
+}
+.top-bar a {
+    color: #ccc;
+}
+.top-bar a:hover {
+    color: #fff;
+}
+/*Header*/
+.header {
+    box-shadow: 0px 0px 15px rgba(0,0,0,15%);
+}
+.navbar {
+    padding: 25px 0px;
+    
+}
+@media(min-width: 992px) { 
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 20px;
+    padding-left: 20px;
+    
+}
+}
+.navbar-nav .nav-link { 
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #666;
+}
+.navbar-expand-lg .navbar-nav .nav-link:hover {
+    color: #00BC9C;
+}
+.navbar-light .navbar-nav .nav-link.active { 
+    color: #00BC9C;
+}
+.dropdown-item {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #666;
+}
+.dropdown-item:hover {
+    background: #00BC9C;
+    color: #fff;
+}
+.dropdown-menu.show {
+    padding: 0px;
+    border: 0px;
+    box-shadow: #666;
+}
+.btn-outline-success:hover {
+    background: #fff;
+    color: #00BC9C;
+}
+.btn-outline-success {
+    text-transform: uppercase;
+    border:#00BC9C solid 1px;
+    background: #00BC9C;
+    color: #fff;
+    font-weight: 700;
+    font-family: Lato;
+
+}
+
+.nav-item .form-control {
+    width: 150px;
+}
+.buttonsearch {
+    padding: 0px 0px;
+}
+
+.dropdown-menu {
+    width: 450px;
+}
+
+
+
+/*SHOWCASE*/
+.showcase {
+    background: url(../img/SB.png) center center no-repeat;
+    background-size: cover;
+    padding: 120px 0px;
+
+}
+.showcase h1 {
+    padding-top: 60px;
+    color: #fff;
+    font-weight: 900;
+    font-size: 72px;
+}
+div.line {
+    width: 200px;
+    height: 5px;
+    background: #00BC9C;
+    display: inline-block;
+}
+.showcase p {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 400;
+    padding: 40px 25% ;
+}
+.showcase a {
+    background: #00BC9C;
+    padding: 17px 50px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 24px;
+    font-family: Lato;
+    text-transform: uppercase;
+}
+.showcase a:hover {
+    background: #fff;
+    color: #00BC9C;
+    border: #00BC9C solid 1px;
+}
+/*Service*/
+h2 { 
+    font-size: 40px;
+    font-weight: 700;
+    font-family: Lato;
+    color: #3F4F60;
+    padding-top: 120px;
+} 
+.service-information p {
+    font-size: 20px;
+    font-weight: 400;
+    color: #666;
+    padding: 20px 25%;
+}
+.service img { 
+    width: 100%;
+    padding-top: 20px;
+}
+.service img:hover {
+    transform: scale(1.05);
+}
+h3 {
+    font-size: 28px;
+    font-weight: 700px;
+    color: #00BC9C;
+    font-family: Lato;
+    padding: 8px 0px;
+}
+.service p {
+    color: #666;
+}
+h3 a { color: #00BC9C;}
+/*Feature*/
+.feature {
+    color: #fff;
+}
+.feature-left {
+    background: #506A85;
+    width: 50%;
+    background-size: cover;
+    padding: 0px 120px;
+}
+.feature-left h2 {
+    color: #fff;
+    font-size: Lato;  
+}
+.feature-left h5 {
+    color: #fff;
+    font-weight: 900;
+    font-size: 72px; 
+}
+.feature-right {
+    
+    background: url(../img/FB.jpg) no-repeat left bottom;
+    background-size: cover;
+    width: 50%;
+}
+.feature-left h2 span {
+    color: #fff;
+    font-weight: 900;
+    font-size: 72px; 
+    text-transform: uppercase;
+    line-height: 86px;
+}
+.big { 
+    font-size: 24px;
+    padding: 40px 0px;
+}
+.feature button {
+    padding: 17px 50px;
+    font-size: 24px;
+    margin-bottom: 120px;
+}
+/*Beauty*/
+.Beauty { 
+    margin-bottom: 120px;
+}
+/*Gallery*/
+.gallery { 
+    background: url(../img/GL.jpg) center center no-repeat;
+    background-size: cover;
+    
+}
+.gallery h2 {
+    color: #fff;
+}
+.gallery p {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 40px 25% ;
+}
+.gallery img { 
+    width: 100%;
+    padding-bottom: 20px;
+}
+.gallery-product { 
+    margin-bottom: 100px;
+}.gallery img:hover {
+   transform: scale(1.05);
+    
+
+}
+/*LATTER WORKS*/
+.latter-works p {
+    font-size: 20px;
+    color: #666;
+    padding-bottom: 40px;
+}
+.work-item {
+    text-align: center;
+    box-shadow: 0px 0px 5px rgba(0,0,0,15%);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+.work-item h3 {
+    padding: 20px 20px;
+    font-family: Lato;
+    font-weight: 700;
+    font-size: 22px;
+    color: #00BC9C;
+}
+.latter-works button {
+    padding: 13px 40px;
+    margin-top: 40px;
+    margin-bottom: 100px;
+    color: #333;
+    background: #fff;
+    border: 1px solid #333;
+}
+.latter-works button:hover {
+    background: #333;
+    color: #fff;
+    border: 1px solid #333;
+}
+/*Apply Now*/
+.Apply-now {
+    background: url(../img/R.jpg) center center no-repeat;
+    background-size: cover;
+}
+.Apply-now h2 {
+    color: #fff;
+}
+.Apply-now p {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 400;
+    padding: 40px 25% ;
+}
+.Apply-now button {
+    margin-bottom: 120px;
+    margin-top: 40px;
+    padding: 17px 50px;
+    font-size: 24px;
+}
+/*BLOG*/
+.blog-header p {
+    font-size: 20px;
+    color: #666;
+    font-weight: 400;
+    padding: 40px 25%;
+}
+.Blog h3 {
+    font-size: 22px;
+}
+.Blog h3:hover {
+    color: blue;
+}
+.Blog p { 
+    color: #666;
+    
+}
+.Blog span {
+    color: #999;
+    margin-bottom: 8px;
+}
+.Blog a:hover {
+    color: blue;
+}
+#blogslider .carousel-control-next {
+    width: auto;
+    right: -50px;
+}
+#blogslider .carousel-control-prev {
+    width: auto;
+    left: -80px;
+}
+/*FOOTER*/
+.Footer {
+    background: #3F4F60;
+    margin-top: 120px;
+}
+.Footer h5 {
+    text-transform: uppercase;
+    color: #fff;
+    padding-top: 60px;
+    padding-bottom: 40px;
+    font-family: Lato;
+
+}
+.Footer a {
+    color: #fff;
+    padding: 0px;
+}
+.Footer img {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.Footer p {
+    color: #fff;
+}
+.search input {
+    padding: 10px 15px;
+    background: #999;
+    border:none;
+    color: #fff;
+    border-radius: 8px;
+    width: 65%;
+    
+}
+.search button {
+    width: 30%;
+    border-radius: 8px;
+    margin-left: 5px;
+}
+/*COPYRIGHTS*/
+.copyright {
+    background: #283645;
+    padding: 10px 0px;
+    color: #ccc;
+}
+.copyright li a {
+    color: #ccc;
+    padding-right: 16px;
+}
+.copyright li a:hover {
+    color: #fff;
+}
