@@ -79,13 +79,13 @@ const LayoutHome = (props: Props) => {
 
       <footer>
         {/* Footer */}
-        <div className="Footer">
+        <div className="footer">
           <div className="container">
             <div className="row">
               <div className="col-md-3">
                 <h5> Who are We</h5>
                 <a href="#">
-                  <img src="img/FLOGO.png" />
+                  <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1645286901/Logo_rbcynk.png" />
                 </a>
                 <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 <p> <a href="#"> More About Us <i className="fas fa-arrow-right" /></a></p>
@@ -105,10 +105,10 @@ const LayoutHome = (props: Props) => {
                   <a href="#"><i className="fas fa-map-marker-alt me-2" /> 84 Street, City, State 24813</a></p>
                 <p>
                   <i className="far fa-envelope me-2" />
-                  <a href="mailto:info@reen.com">info@reen.com</a>
+                  <a href="mailto:info@reen.com">toanpqph14805@gmail.com</a>
                 </p>
                 <p> <i className="fas fa-mobile-alt me-2" />
-                  <a href="tel:19005678">1900 5678</a></p>
+                  <a href="tel:19005678">0123456789</a></p>
               </div>
               <div className="col-md-4"><h5>Newsletter</h5>
                 <p>Conecus iure posae volor remped modis aut lor volor accabora incim resto explabo.
@@ -129,7 +129,7 @@ const LayoutHome = (props: Props) => {
         <div className="copyright">
           <div className="container">
             <div className="d-flex">
-              <div className="me-auto">Giao diện được đi copy tại REEN</div>
+              <div className="me-auto">Copyright by Pham Quoc Toan</div>
               <ul className="list-unstyled mb-0 d-flex">
                 <li> <a href="#">Home</a></li>
                 <li> <a href="#">About Us</a></li>

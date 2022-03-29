@@ -12,7 +12,7 @@ const ProductList = (props: Props) => {
     <div>
       <section className="ftco-section">
         <div className="container">
-          <p className='text-center'>Danh sách Product</p>
+          <p className='text-center py-3'>Danh sách Product</p>
           <div className="row">
             <div className="col-md-12">
               <div className="table-wrap">
@@ -45,7 +45,7 @@ const ProductList = (props: Props) => {
                         <td>{item.price}</td>
                         <td className="status"><span className="active">Category</span></td>
                         <td>
-                          <button className="close" data-dismiss="alert" aria-label="Close">
+                          <button type='submit' className="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true"><i className="fa fa-close" /></span>
                           </button>
                         </td>

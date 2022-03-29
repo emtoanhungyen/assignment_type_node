@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Navigate, NavLink, Route, Routes } from 'react-router-dom'
 import { add, list, remove } from './api/product'
+import Dashboard from './pages/admin/Dashboard'
 import ProductAdd from './pages/admin/product/ProductAdd'
 import ProductList from './pages/admin/product/ProductList'
-import Dashboard from './pages/Dashboard'
 import Home from './pages/Home'
 import LayoutAdmin from './pages/layout/LayoutAdmin'
 import LayoutHome from './pages/layout/LayoutHome'
 import News from './pages/News'
+import Products from './pages/Products'
 import { TypeProduct } from './types/products'
 function App() {
   // const [count, setCount] = useState(0)
@@ -49,7 +50,7 @@ function App() {
           <Route path="/" element={<LayoutHome />}>
             <Route index element={<Home />} />
             <Route path='news' element={<News />} />
-            {/* <Route path='products' element={<ProductList />} /> */}
+            <Route path='products' element={<Products products={products} />} />
           </Route>
           <Route path='/admin' element={<LayoutAdmin />}>
             <Route index element={<Navigate to="dashboard" />} />

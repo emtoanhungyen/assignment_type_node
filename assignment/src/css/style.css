@@ -307,26 +307,26 @@ h3 a { color: #00BC9C;}
     left: -80px;
 }
 /*FOOTER*/
-.Footer {
+.footer {
     background: #3F4F60;
     margin-top: 120px;
 }
-.Footer h5 {
+.footer h5 {
     text-transform: uppercase;
     color: #fff;
     padding-top: 60px;
     padding-bottom: 40px;
 
 }
-.Footer a {
+.footer a {
     color: #fff;
     padding: 0px;
 }
-.Footer img {
+.footer img {
     margin-bottom: 20px;
     margin-top: 10px;
 }
-.Footer p {
+.footer p {
     color: #fff;
 }
 .search input {
