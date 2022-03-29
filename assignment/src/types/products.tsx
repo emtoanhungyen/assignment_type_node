@@ -1,5 +1,5 @@
-export interface IProduct{
-    id?: number, 
+export interface TypeProduct{
+    id?: string, 
     name: string,
     price: number
 }
