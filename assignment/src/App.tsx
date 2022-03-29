@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 import { Navigate, NavLink, Route, Routes } from 'react-router-dom'
+import ProductAdd from './pages/admin/product/ProductAdd'
+import ProductList from './pages/admin/product/ProductList'
 import Dashboard from './pages/Dashboard'
 import Home from './pages/Home'
 import LayoutAdmin from './pages/layout/LayoutAdmin'
 import LayoutHome from './pages/layout/LayoutHome'
 import News from './pages/News'
-import ProductList from './pages/ProductList'
 // import { add, list, update } from './api/products'
 // import { addUser } from './api/users'
 // import Home from './pages/Home'
@@ -56,9 +57,12 @@ function App() {
             <Route path='products' element={<ProductList />} />
           </Route>
           <Route path='/admin' element={<LayoutAdmin />}>
-            <Route index element={ <Navigate to="dashboard" />} />
-              <Route path='dashboard' element={<Dashboard />} />
-            <Route path='products' element={<ProductList />} />
+            <Route index element={<Navigate to="dashboard" />} />
+            <Route path='dashboard' element={<Dashboard />} />
+            <Route path='products'>
+              <Route index element={<ProductList />} />
+              <Route path='add' element={<ProductAdd />} />
+            </Route>
           </Route>
         </Routes>
 
