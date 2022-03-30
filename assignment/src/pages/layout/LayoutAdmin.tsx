@@ -5,7 +5,7 @@ type Props = {}
 
 const LayoutAdmin = (props: Props) => {
     return (
-        <div>
+        <body id="page-top">
             <div>
                 {/* Page Wrapper */}
                 <div id="wrapper">
@@ -330,7 +330,7 @@ const LayoutAdmin = (props: Props) => {
                 </div>
             </div>
 
-        </div>
+        </body>
     )
 }
 

@@ -7,8 +7,10 @@ import ProductList from './pages/admin/product/ProductList'
 import Home from './pages/Home'
 import LayoutAdmin from './pages/layout/LayoutAdmin'
 import LayoutHome from './pages/layout/LayoutHome'
+import Login from './pages/Login'
 import News from './pages/News'
 import Products from './pages/Products'
+import Signup from './pages/Signup'
 import { TypeProduct } from './types/products'
 function App() {
   // const [count, setCount] = useState(0)
@@ -47,11 +49,13 @@ function App() {
     <div className="App">
       <main>
         <Routes>
+          {/* Router home */}
           <Route path="/" element={<LayoutHome />}>
             <Route index element={<Home />} />
             <Route path='news' element={<News />} />
             <Route path='products' element={<Products products={products} />} />
           </Route>
+          {/* Router admin */}
           <Route path='/admin' element={<LayoutAdmin />}>
             <Route index element={<Navigate to="dashboard" />} />
             <Route path='dashboard' element={<Dashboard />} />
@@ -61,6 +65,9 @@ function App() {
               <Route path='add' element={<ProductAdd onAdd={addProduct} />} />
             </Route>
           </Route>
+          {/* Router đăng ký đăng nhập */}
+          <Route path='login' element={<Login />}/>
+          <Route path='signup' element={<Signup />}/>
         </Routes>
 
         {/* <Routes>
