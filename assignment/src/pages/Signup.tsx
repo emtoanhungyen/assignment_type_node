@@ -1,8 +1,25 @@
 import React from 'react'
+import { TypeUser } from '../types/user'
+import {useForm, SubmitHandler } from 'react-hook-form';
 
-type Props = {}
 
-const Signup = (props: Props) => {
+type SignupProps = {
+  name: string,
+  email: string,
+  password: string,
+  onSignup: (user: TypeUser) => void
+}
+type TypeForm = {
+  name: string,
+  email: string,
+  password: string
+}
+
+const Signup = (props: SignupProps) => {
+  const { register, handleSubmit, formState: {errors}} = useForm<TypeForm>();
+  const onSubmit: SubmitHandler<TypeForm> = data => {
+    props.onAdd(data);
+  }
   return (
     <div>
       <div className="container">
@@ -16,21 +33,18 @@ const Signup = (props: Props) => {
                   <div className="text-center">
                     <h1 className="h4 text-gray-900 mb-4">Tạo mới tài khoản!</h1>
                   </div>
-                  <form className="user">
+                  <form className="user" onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group row">
                       <div className="">
-                        <input type="text" className="form-control form-control-user" id="exampleFirstName" placeholder="Tên đăng nhập..." />
+                        <input type="text" className="form-control form-control-user" id="exampleFirstName" placeholder="Tên đăng nhập..." {...register('name', {required: true})}  />
                       </div>
                     </div>
                     <div className="form-group">
-                      <input type="email" className="form-control form-control-user" id="exampleInputEmail" placeholder="Email..." />
+                      <input type="email" className="form-control form-control-user" id="exampleInputEmail" placeholder="Email..." {...register('email', {required: true})}/>
                     </div>
                     <div className="form-group row">
                       <div className="col-sm-6 mb-3 mb-sm-0">
-                        <input type="password" className="form-control form-control-user" id="exampleInputPassword" placeholder="Mật khẩu..." />
-                      </div>
-                      <div className="col-sm-6">
-                        <input type="password" className="form-control form-control-user" id="exampleRepeatPassword" placeholder="Nhập lại mật khẩu..." />
+                        <input type="password" className="form-control form-control-user" id="exampleInputPassword" placeholder="Mật khẩu..." {...register('password', {required: true})} />
                       </div>
                     </div>
                     <a href="login.html" className="btn btn-primary btn-user btn-block">

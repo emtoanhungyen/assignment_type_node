@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Navigate, NavLink, Route, Routes } from 'react-router-dom'
 import { add, list, remove } from './api/product'
+import { signup } from './api/user'
 import Dashboard from './pages/admin/Dashboard'
 import ProductAdd from './pages/admin/product/ProductAdd'
 import ProductList from './pages/admin/product/ProductList'
@@ -12,9 +13,11 @@ import News from './pages/News'
 import Products from './pages/Products'
 import Signup from './pages/Signup'
 import { TypeProduct } from './types/products'
+import { TypeUser } from './types/user'
 function App() {
   // const [count, setCount] = useState(0)
   const [products, setProducts] = useState<TypeProduct[]>([]);
+  const [users, setUsers] = useState<TypeUser[]>([]);
   useEffect(() => {
     const getProducts = async () => {
         const { data } = await list();
@@ -31,6 +34,11 @@ function App() {
     remove(id);
     //reRender
     setProducts(products.filter(item => item.id !== id));
+  }
+  const signup = async (user: TypeUser) => {
+    const { data } = await signup(user);
+    setUsers([...users, data]);
+
   }
   // const onHandleAdd = async (product: IProduct) => {
   //   const { data } = await add(product);
@@ -67,7 +75,7 @@ function App() {
           </Route>
           {/* Router đăng ký đăng nhập */}
           <Route path='login' element={<Login />}/>
-          <Route path='signup' element={<Signup />}/>
+          <Route path='signup' element={<Signup  />}/>
         </Routes>
 
         {/* <Routes>
