@@ -8,6 +8,6 @@ export const dangky = (user: TypeUser) => {
     return instance.post(url,user);
 }
 export const login = (user: TypeUser) => {
-    const url = "/login";
+    const url = "/signin";
     return instance.post(url, user);
 }

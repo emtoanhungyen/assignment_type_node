@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Navigate, NavLink, Route, Routes } from 'react-router-dom'
 import { add, list, remove } from './api/product'
 import { dangky } from './api/user'
+import PrivteRoute from './components/PrivteRoute'
 import Dashboard from './pages/admin/Dashboard'
 import ProductAdd from './pages/admin/product/ProductAdd'
 import ProductList from './pages/admin/product/ProductList'
@@ -59,7 +60,7 @@ function App() {
             <Route path='products' element={<Products products={products} />} />
           </Route>
           {/* Router admin */}
-          <Route path='/admin' element={<LayoutAdmin />}>
+          <Route path='/admin' element={ <PrivteRoute><LayoutAdmin /></PrivteRoute>}>
             <Route index element={<Navigate to="dashboard" />} />
             <Route path='dashboard' element={<Dashboard />} />
 

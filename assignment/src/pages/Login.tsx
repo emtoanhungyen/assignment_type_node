@@ -11,8 +11,10 @@ type InputForm = {
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<InputForm>();
   const navigate = useNavigate();
-  const onSubmit: SubmitHandler<InputForm> = async data => {
+
+  const onSubmit: SubmitHandler<InputForm> = async (data: any) => {
     const { data: user } = await login(data);
+
     authenticated(user, () => {
       navigate("/");
     })

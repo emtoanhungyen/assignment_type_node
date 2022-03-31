@@ -13,7 +13,8 @@ type SignupProps = {
 type TypeForm = {
   name: string,
   email: string,
-  password: string
+  password: string,
+  
 }
 
 const Signup = (props: SignupProps) => {

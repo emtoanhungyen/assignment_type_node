@@ -32,7 +32,7 @@ const Header = (props: Props) => {
                     <div className="header">
                         <nav className="navbar navbar-expand-lg navbar-light">
                             <div className="container">
-                                <a className="logo" href="#">
+                                <a className="logo" href="/">
                                     <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1645286901/Logo_rbcynk.png" />
                                 </a>
                                 {/* MOBILE BUTTON */}
@@ -63,7 +63,9 @@ const Header = (props: Props) => {
                                                 <button className="btn btn-outline-success"> Search</button>
                                             </div>
                                         </div>
-                                    </ul></div>
+                                    </ul>
+                                </div>
+                                
                                 <button className="btn btn-outline-success" type="submit">
                                     <NavLink to='/login'>Đăng nhập</NavLink>
                                 </button>

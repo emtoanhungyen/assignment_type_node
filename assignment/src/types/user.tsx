@@ -3,6 +3,9 @@ export interface TypeUser {
     name: string,
     email: string,
     password: string,
-    slat? : string,
-    role? : number
+    salt? : string,
+    role? : {
+        type: number,
+        default: 0
+    }
 }
