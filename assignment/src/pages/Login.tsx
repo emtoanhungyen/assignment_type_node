@@ -1,8 +1,22 @@
 import React from 'react'
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { login } from '../api/user';
+import { authenticated } from '../utils/localStorage';
+import { useNavigate } from 'react-router-dom';
 
-type Props = {}
-
-const Login = (props: Props) => {
+type InputForm = {
+  email: string,
+  password: string
+}
+const Login = () => {
+  const { register, handleSubmit, formState: { errors } } = useForm<InputForm>();
+  const navigate = useNavigate();
+  const onSubmit: SubmitHandler<InputForm> = async data => {
+    const { data: user } = await login(data);
+    authenticated(user, () => {
+      navigate("/");
+    })
+  }
   return (
     <body className="">
       <div className="container">
@@ -19,12 +33,12 @@ const Login = (props: Props) => {
                       <div className="text-center">
                         <h1 className="h4 text-gray-900 mb-4">Chào mừng bạn!</h1>
                       </div>
-                      <form className="user">
+                      <form className="user" onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-group">
-                          <input type="email" className="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Nhập email..." />
+                          <input type="email" className="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Nhập email..." {...register("email", { required: true })} />
                         </div>
                         <div className="form-group">
-                          <input type="password" className="form-control form-control-user" id="exampleInputPassword" placeholder="Mật khẩu..." />
+                          <input type="password" className="form-control form-control-user" id="exampleInputPassword" placeholder="Mật khẩu..." {...register('password', { required: true })} />
                         </div>
                         <div className="form-group">
                           <div className="custom-control custom-checkbox small">
@@ -32,9 +46,9 @@ const Login = (props: Props) => {
                             <label className="custom-control-label" htmlFor="customCheck">Nhớ tài khoản?</label>
                           </div>
                         </div>
-                        <a href="index.html" className="btn btn-primary btn-user btn-block">
+                        <button className="btn btn-primary btn-user btn-block">
                           Đăng nhập
-                        </a>
+                        </button>
                         <a href="index.html" className="btn btn-google btn-user btn-block">
                           <i className="fab fa-google fa-fw" /> Đăng nhập với Google
                         </a>
@@ -46,7 +60,7 @@ const Login = (props: Props) => {
                         <a className="small-2" href="forgot-password.html">Quên mật khẩu?</a>
                       </div>
                       <div className="text-center mt-3">
-                        <a className="small-2" href="register.html">Tạo mới một tài khoản!</a>
+                        <a className="small-2" href="/signup">Tạo mới một tài khoản!</a>
                       </div>
                     </div>
                   </div>

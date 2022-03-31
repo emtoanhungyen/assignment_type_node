@@ -3,7 +3,11 @@ import { TypeUser } from "../types/user";
 import instance from "./instace";
 
 
-export const signup = (user: TypeUser) => {
-    const url = "/user";
+export const dangky = (user: TypeUser) => {
+    const url = "/signup";
     return instance.post(url,user);
+}
+export const login = (user: TypeUser) => {
+    const url = "/login";
+    return instance.post(url, user);
 }

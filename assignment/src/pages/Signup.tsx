@@ -1,13 +1,14 @@
 import React from 'react'
 import { TypeUser } from '../types/user'
-import {useForm, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 
 type SignupProps = {
   name: string,
   email: string,
   password: string,
-  onSignup: (user: TypeUser) => void
+  onAdd: (user: TypeUser) => void
 }
 type TypeForm = {
   name: string,
@@ -16,9 +17,12 @@ type TypeForm = {
 }
 
 const Signup = (props: SignupProps) => {
-  const { register, handleSubmit, formState: {errors}} = useForm<TypeForm>();
+  const { register, handleSubmit, formState: { errors } } = useForm<TypeForm>();
+  const Navigate = useNavigate();
   const onSubmit: SubmitHandler<TypeForm> = data => {
+    console.log(data);
     props.onAdd(data);
+    Navigate("/login");
   }
   return (
     <div>
@@ -36,20 +40,20 @@ const Signup = (props: SignupProps) => {
                   <form className="user" onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group row">
                       <div className="">
-                        <input type="text" className="form-control form-control-user" id="exampleFirstName" placeholder="Tên đăng nhập..." {...register('name', {required: true})}  />
+                        <input type="text" className="form-control form-control-user" id="exampleFirstName" placeholder="Tên đăng nhập..." {...register('name')} />
                       </div>
                     </div>
                     <div className="form-group">
-                      <input type="email" className="form-control form-control-user" id="exampleInputEmail" placeholder="Email..." {...register('email', {required: true})}/>
+                      <input type="email" className="form-control form-control-user" id="exampleInputEmail" placeholder="Email..." {...register('email', { required: true })} />
                     </div>
                     <div className="form-group row">
                       <div className="col-sm-6 mb-3 mb-sm-0">
-                        <input type="password" className="form-control form-control-user" id="exampleInputPassword" placeholder="Mật khẩu..." {...register('password', {required: true})} />
+                        <input type="password" className="form-control form-control-user" id="exampleInputPassword" placeholder="Mật khẩu..." {...register('password', { required: true })} />
                       </div>
                     </div>
-                    <a href="login.html" className="btn btn-primary btn-user btn-block">
+                    <button className="btn btn-primary btn-user btn-block">
                       Đăng ký
-                    </a>
+                    </button>
                     <a href="index.html" className="btn btn-google btn-user btn-block">
                       <i className="fab fa-google fa-fw" /> Đăng Ký với Google
                     </a>
@@ -57,11 +61,11 @@ const Signup = (props: SignupProps) => {
                       <i className="fab fa-fw" /> Về trang chủ
                     </a>
                   </form>
-                  <div className="text-center">
-                    <a className="small" href="forgot-password.html">Quên mật khẩu?</a>
+                  <div className="text-center mt-4">
+                    <a className="small-2" href="forgot-password.html">Quên mật khẩu?</a>
                   </div>
-                  <div className="text-center">
-                    <a className="small" href="/login">Bạn đã có tài khoản? Đăng nhập!</a>
+                  <div className="text-center mt-4">
+                    <a className="small-2" href="/login">Bạn đã có tài khoản? Đăng nhập!</a>
                   </div>
                 </div>
               </div>
