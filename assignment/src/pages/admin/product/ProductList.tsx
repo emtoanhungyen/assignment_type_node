@@ -45,7 +45,7 @@ const ProductList = (props: Props) => {
                         <td>{item.price}</td>
                         <td className="status"><span className="active">Category</span></td>
                         <td>
-                          <a className='' href="">Edit</a>
+                          <a className=':id/edit' href="">Edit</a>
                           <button type='submit' className="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true"><i className="fa fa-close" /></span>
                           </button>

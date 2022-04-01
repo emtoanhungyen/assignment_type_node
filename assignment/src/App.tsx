@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Navigate, NavLink, Route, Routes } from 'react-router-dom'
-import { add, list, remove } from './api/product'
+import { add, list, remove, update } from './api/product'
 import { dangky } from './api/user'
 import PrivteRoute from './components/PrivteRoute'
 import Dashboard from './pages/admin/Dashboard'
 import ProductAdd from './pages/admin/product/ProductAdd'
+import ProductEdit from './pages/admin/product/ProductEdit'
 import ProductList from './pages/admin/product/ProductList'
 import Home from './pages/Home'
 import LayoutAdmin from './pages/layout/LayoutAdmin'
@@ -40,10 +41,10 @@ function App() {
   //   const { data } = await add(product);
   //   setProducts([...products, data]);
   // };
-  // const onHandleUpdate = async (product: IProduct) => {
-  //   const { data } = await update(product);
-  //   setProducts(product.map(item => item.id == data.id ? data: item))
-  // }
+  const onHandleUpdate = async (product: TypeProduct) => {
+    const { data } = await update(product);
+    setProducts(product.map(item => item.id == data.id ? data: item))
+  }
   const onHandleSignup = async (user: TypeUser) => {
     const { data } = await dangky(user);
     setUsers([...users, data]);
@@ -67,6 +68,7 @@ function App() {
             <Route path='products'>
               <Route index element={<ProductList products={products} onRemove={removeProduct} />} />
               <Route path='add' element={<ProductAdd onAdd={addProduct} />} />
+              <Route path=':id/edit' element={<ProductEdit onUpdate={onHandleUpdate} />} />
             </Route>
           </Route>
           {/* Router đăng ký đăng nhập */}

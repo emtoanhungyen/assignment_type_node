@@ -3,6 +3,8 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { login } from '../api/user';
 import { authenticated } from '../utils/localStorage';
 import { useNavigate } from 'react-router-dom';
+import toastr from 'toastr';
+import "toastr/build/toastr.min.css";
 
 type InputForm = {
   email: string,
@@ -10,18 +12,20 @@ type InputForm = {
 }
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm<InputForm>();
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
 
   const onSubmit: SubmitHandler<InputForm> = async (data: any) => {
-    const { data: user } = await login(data);
-    // const role = localStorage.getItem(data.us);
-    // console.log(role);
-    authenticated(user, () => {
-      // if (localStorage.getItem(user.role) === '1') {
-      //   navigate("/admin");
-      // }
-      navigate("/");
-    })
+    try {
+      const { data: user } = await login(data);
+      authenticated(user, () => {
+        
+        Navigate("/");
+      })
+      toastr.success("Đăng nhập thành công!")
+    } catch (error) {
+      toastr.error("Đăng nhập không thành công!");
+      Navigate("/login")
+    }
   }
   return (
     <body className="">

@@ -11,3 +11,7 @@ export const login = (user: TypeUser) => {
     const url = "/signin";
     return instance.post(url, user);
 }
+export const get = (id: string| undefined) => {
+    const url = `/users/${id}`;
+    return instance.get(url);
+}

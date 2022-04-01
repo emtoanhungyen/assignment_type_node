@@ -1,6 +1,9 @@
 import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
+import toastr from 'toastr';
+import "toastr/build/toastr.min.css";
+
 type ProductAddProps = {
   name: String,
   price: Number,
@@ -13,10 +16,17 @@ type InputForm = {
 
 const ProductAdd = (props: ProductAddProps) => {
   const { register, handleSubmit, formState: { errors } } = useForm<InputForm>();
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
   const onSubmit: SubmitHandler<InputForm> = data => {
-    props.onAdd(data);
-    navigate("/admin/products");
+    try {
+      props.onAdd(data);
+      toastr.success("Thêm sản phẩm thành công");
+      Navigate("/admin/products");
+    } catch (error) {
+      toastr.error("Thêm sản phẩm không thành công");
+      Navigate("/products");
+    }
+
   }
   return (
     <div className="w-180 p-3">

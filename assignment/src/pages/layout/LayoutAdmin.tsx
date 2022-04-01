@@ -1,9 +1,10 @@
 import React from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
+import { get } from '../../api/user'
 
 type Props = {}
 
-const LayoutAdmin = (props: Props) => {
+const LayoutAdmin = async (props: Props) => {
     return (
         <body id="page-top">
             <div>
