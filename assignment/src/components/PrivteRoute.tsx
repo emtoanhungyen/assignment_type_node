@@ -11,9 +11,10 @@ const PrivteRoute = (props: PrivteRouteProps) => {
     const { user: { role } } = isAuthenticate();
     // const role = true;
     if(!role){
-        return <Navigate to="/signin"/>
-        toastr.success('Ve trang dang nhap di cu')
+        return <Navigate to="/login"/>
+        
     }
+    toastr.success('Ve trang dang nhap di cu')
     return props.children
 }
 
