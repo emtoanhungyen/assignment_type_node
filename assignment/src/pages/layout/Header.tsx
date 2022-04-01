@@ -52,9 +52,6 @@ const Header = (props: Props) => {
                                         <li className="nav-item">
                                             <NavLink className="nav-link" to="/products">Sản phẩm</NavLink>
                                         </li>
-                                        <li className="nav-item">
-                                            <NavLink className="nav-link" to="/admin">Admin</NavLink>
-                                        </li>
                                         <div className="dropdown">
                                             <a href="#" data-bs-toggle="dropdown" className="nav-link">
                                                 <i className="fas fa-search" /></a>

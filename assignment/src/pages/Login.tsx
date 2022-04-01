@@ -14,8 +14,12 @@ const Login = () => {
 
   const onSubmit: SubmitHandler<InputForm> = async (data: any) => {
     const { data: user } = await login(data);
-
+    // const role = localStorage.getItem(data.us);
+    // console.log(role);
     authenticated(user, () => {
+      // if (localStorage.getItem(user.role) === '1') {
+      //   navigate("/admin");
+      // }
       navigate("/");
     })
   }

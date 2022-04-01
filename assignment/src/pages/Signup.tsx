@@ -2,6 +2,7 @@ import React from 'react'
 import { TypeUser } from '../types/user'
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import toastr from 'toastr';
 
 
 type SignupProps = {
@@ -14,15 +15,15 @@ type TypeForm = {
   name: string,
   email: string,
   password: string,
-  
 }
 
 const Signup = (props: SignupProps) => {
   const { register, handleSubmit, formState: { errors } } = useForm<TypeForm>();
   const Navigate = useNavigate();
   const onSubmit: SubmitHandler<TypeForm> = data => {
-    console.log(data);
+    // const role = localStorage.setItem('role', data.role);
     props.onAdd(data);
+    toastr.success("Đăng ký thành công, về trang đăng nhập!")
     Navigate("/login");
   }
   return (
