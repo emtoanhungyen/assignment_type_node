@@ -24,7 +24,7 @@ const LayoutCart = (props: Props) => {
                                 </td>
                                 <td className="text-center">
                                     <a href="Product Detail.html">
-                                        <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880073/d_whhstb.png" height={150} />
+                                        <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880073/d_whhstb.png" width={150} />
                                     </a>
                                 </td>
                                 <td>
@@ -56,7 +56,7 @@ const LayoutCart = (props: Props) => {
                                 </td>
                                 <td className="text-center">
                                     <a href="#">
-                                        <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880073/d_whhstb.png" height={150} />
+                                        <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880073/d_whhstb.png" width={150} />
                                     </a>
                                 </td>
                                 <td>
@@ -88,7 +88,7 @@ const LayoutCart = (props: Props) => {
                                 </td>
                                 <td className="text-center">
                                     <a href="#">
-                                        <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880073/d_whhstb.png" height={150} />
+                                        <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880073/d_whhstb.png" width={150} />
                                     </a>
                                 </td>
                                 <td>

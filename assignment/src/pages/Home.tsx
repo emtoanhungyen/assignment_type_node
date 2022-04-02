@@ -9,7 +9,7 @@ const Home = (props: Props) => {
         <div className="show">
           <div className="container">
             <div className="show-content">
-              <h6>New Trend</h6>
+              <h6>Xu hướng mới</h6>
               <h1>Wellcome to Reystore</h1>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua.</p>

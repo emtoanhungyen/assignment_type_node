@@ -12,7 +12,7 @@ const Footer = (props: Props) => {
                             <a href="#">
                                 <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648878761/logo2_vyqotb.png" className="f-logo" />
                             </a>
-                            <p><a href="#">reyfashion@gmail.com</a><br />
+                            <p className=''><a href="#">reyfashion@gmail.com</a><br />
                                 <a href="#">18006868</a><br />
                                 <a href="#">FLC Twin Tower 265 Cau Giay, Hanoi </a> <br />
                             </p>

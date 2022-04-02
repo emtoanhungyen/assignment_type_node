@@ -1,6 +1,9 @@
 import React from 'react'
+import { TypeProduct } from '../types/products'
 
-type Props = {}
+type Props = {
+    product: TypeProduct[]
+}
 
 const ProductsList = (props: Props) => {
     return (
@@ -50,217 +53,24 @@ const ProductsList = (props: Props) => {
                             </div>
                         </div>
                         <div className="col-9">
-                            <div className="row">
-                                <div className="col-4">
-                                    <div className="pro-item">
-                                        <div className="pro-thumb">
-                                            <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880076/a_ossmvn.png" />
-                                            <a href="#" className="btn btn-sm"> add to cart</a>
+                            <div className="box">
+                                {props.product.map((item, index) => {
+                                    return <div className="box-products">
+                                        <div key={index} className="pro-item">
+                                            <div className="pro-thumb">
+                                                <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880076/a_ossmvn.png" />
+                                                <a href="#" className="btn btn-sm"> add to cart</a>
+                                            </div>
+                                            <span className="small">New</span>
+                                            <h4 className="pro-item-name">
+                                                <a href="#">{item.name}</a>
+                                            </h4>
+                                            <div className="pro-item-price">{item.price}$ </div>
                                         </div>
-                                        <span className="small">New</span>
-                                        <h4 className="pro-item-name">
-                                            <a href="#">Blue Bleach Wash Denim Western Short</a>
-                                        </h4>
-                                        <div className="pro-item-price">$20.00 </div>
                                     </div>
-                                </div>
-                                <div className="col-4">
-                                    <div className="pro-item">
-                                        <div className="pro-thumb">
-                                            <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880076/a_ossmvn.png" />
-                                            <a href="#" className="btn btn-sm"> add to cart</a>
-                                        </div>
-                                        <span className="small">New</span>
-                                        <h4 className="pro-item-name">
-                                            <a href="#">Blue Bleach Wash Denim Western Short</a>
-                                        </h4>
-                                        <div className="pro-item-price">$20.00 </div>
-                                    </div>
-                                </div>
-                                <div className="col-4">
-                                    <div className="pro-item">
-                                        <div className="pro-thumb">
-                                            <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880076/a_ossmvn.png" />
-                                            <a href="#" className="btn btn-sm"> add to cart</a>
-                                        </div>
-                                        <span className="small">New</span>
-                                        <h4 className="pro-item-name">
-                                            <a href="#">Blue Bleach Wash Denim Western Short</a>
-                                        </h4>
-                                        <div className="pro-item-price">$20.00 <span className="pro-sale">$30.00</span></div>
-                                        <div className="pro-label">-30%</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-4">
-                                    <div className="pro-item">
-                                        <div className="pro-thumb">
-                                            <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880076/a_ossmvn.png" />
-                                            <a href="#" className="btn btn-sm"> add to cart</a>
-                                        </div>
-                                        <span className="small">New</span>
-                                        <h4 className="pro-item-name">
-                                            <a href="#">Blue Bleach Wash Denim Western Short</a>
-                                        </h4>
-                                        <div className="pro-item-price">$20.00</div>
-                                    </div>
-                                </div>
-                                <div className="col-4">
-                                    <div className="pro-item">
-                                        <div className="pro-thumb">
-                                            <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880076/a_ossmvn.png" />
-                                            <a href="#" className="btn btn-sm"> add to cart</a>
-                                        </div>
-                                        <span className="small">New</span>
-                                        <h4 className="pro-item-name">
-                                            <a href="#">Blue Bleach Wash Denim Western Short</a>
-                                        </h4>
-                                        <div className="pro-item-price">$20.00</div>
-                                    </div>
-                                </div>
-                                <div className="col-4">
-                                    <div className="pro-item">
-                                        <div className="pro-thumb">
-                                            <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880076/a_ossmvn.png" />
-                                            <a href="#" className="btn btn-sm"> add to cart</a>
-                                        </div>
-                                        <span className="small">New</span>
-                                        <h4 className="pro-item-name">
-                                            <a href="#">Blue Bleach Wash Denim Western Short</a>
-                                        </h4>
-                                        <div className="pro-item-price">$20.00 <span className="pro-sale">$30.00</span></div>
-                                        <div className="pro-label">-30%</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-4">
-                                    <div className="pro-item">
-                                        <div className="pro-thumb">
-                                            <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880076/a_ossmvn.png" />
-                                            <a href="#" className="btn btn-sm"> add to cart</a>
-                                        </div>
-                                        <span className="small">New</span>
-                                        <h4 className="pro-item-name">
-                                            <a href="#">Blue Bleach Wash Denim Western Short</a>
-                                        </h4>
-                                        <div className="pro-item-price">$20.00</div>
-                                    </div>
-                                </div>
-                                <div className="col-4">
-                                    <div className="pro-item">
-                                        <div className="pro-thumb">
-                                            <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880076/a_ossmvn.png" />
-                                            <a href="#" className="btn btn-sm"> add to cart</a>
-                                        </div>
-                                        <span className="small">New</span>
-                                        <h4 className="pro-item-name">
-                                            <a href="#">Blue Bleach Wash Denim Western Short</a>
-                                        </h4>
-                                        <div className="pro-item-price">$20.00 <span className="pro-sale">$30.00</span></div>
-                                        <div className="pro-label">-30%</div>
-                                    </div>
-                                </div>
-                                <div className="col-4">
-                                    <div className="pro-item">
-                                        <div className="pro-thumb">
-                                            <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880076/a_ossmvn.png" />
-                                            <a href="#" className="btn btn-sm"> add to cart</a>
-                                        </div>
-                                        <span className="small">New</span>
-                                        <h4 className="pro-item-name">
-                                            <a href="#">Blue Bleach Wash Denim Western Short</a>
-                                        </h4>
-                                        <div className="pro-item-price">$20.00</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-4">
-                                    <div className="pro-item">
-                                        <div className="pro-thumb">
-                                            <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880076/a_ossmvn.png" />
-                                            <a href="#" className="btn btn-sm"> add to cart</a>
-                                        </div>
-                                        <span className="small">New</span>
-                                        <h4 className="pro-item-name">
-                                            <a href="#">Blue Bleach Wash Denim Western Short</a>
-                                        </h4>
-                                        <div className="pro-item-price">$20.00</div>
-                                    </div>
-                                </div>
-                                <div className="col-4">
-                                    <div className="pro-item">
-                                        <div className="pro-thumb">
-                                            <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880076/a_ossmvn.png" />
-                                            <a href="#" className="btn btn-sm"> add to cart</a>
-                                        </div>
-                                        <span className="small">New</span>
-                                        <h4 className="pro-item-name">
-                                            <a href="#">Blue Bleach Wash Denim Western Short</a>
-                                        </h4>
-                                        <div className="pro-item-price">$20.00 <span className="pro-sale">$30.00</span></div>
-                                        <div className="pro-label">-30%</div>
-                                    </div>
-                                </div>
-                                <div className="col-4">
-                                    <div className="pro-item">
-                                        <div className="pro-thumb">
-                                            <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880076/a_ossmvn.png" />
-                                            <a href="#" className="btn btn-sm"> add to cart</a>
-                                        </div>
-                                        <span className="small">New</span>
-                                        <h4 className="pro-item-name">
-                                            <a href="#">Blue Bleach Wash Denim Western Short</a>
-                                        </h4>
-                                        <div className="pro-item-price">$20.00 </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-4">
-                                    <div className="pro-item">
-                                        <div className="pro-thumb">
-                                            <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880076/a_ossmvn.png" />
-                                            <a href="#" className="btn btn-sm"> add to cart</a>
-                                        </div>
-                                        <span className="small">New</span>
-                                        <h4 className="pro-item-name">
-                                            <a href="#">Blue Bleach Wash Denim Western Short</a>
-                                        </h4>
-                                        <div className="pro-item-price">$20.00 <span className="pro-sale">$30.00</span></div>
-                                        <div className="pro-label">-30%</div>
-                                    </div>
-                                </div>
-                                <div className="col-4">
-                                    <div className="pro-item">
-                                        <div className="pro-thumb">
-                                            <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880076/a_ossmvn.png" />
-                                            <a href="#" className="btn btn-sm"> add to cart</a>
-                                        </div>
-                                        <span className="small">New</span>
-                                        <h4 className="pro-item-name">
-                                            <a href="#">Blue Bleach Wash Denim Western Short</a>
-                                        </h4>
-                                        <div className="pro-item-price">$20.00 <span className="pro-sale">$30.00</span></div>
-                                        <div className="pro-label">-30%</div>
-                                    </div>
-                                </div>
-                                <div className="col-4">
-                                    <div className="pro-item">
-                                        <div className="pro-thumb">
-                                            <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880076/a_ossmvn.png" />
-                                            <a href="#" className="btn btn-sm"> add to cart</a>
-                                        </div>
-                                        <span className="small">New</span>
-                                        <h4 className="pro-item-name">
-                                            <a href="#">Blue Bleach Wash Denim Western Short</a>
-                                        </h4>
-                                        <div className="pro-item-price">$20.00</div>
-                                    </div>
-                                </div>
-                            </div>
+
+                                })}</div>
+                            {/* <div className="pro-label">-30%</div> */}
                             <div className="text-center">
                                 <ul className="d-flex stt">
                                     <li><a href="#" className="clas1 ">1</a></li>

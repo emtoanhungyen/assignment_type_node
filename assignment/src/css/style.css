@@ -79,6 +79,8 @@ a.btn-sm {
 .col-4 {
 	width: 33.33%;
 	padding: 0px 15px;
+	display: flex;
+	flex-wrap: wrap;
 }
 .col-3 {
 	width: 25%;
@@ -232,7 +234,7 @@ div.cart-box{
 div.cart-box:hover .cart-dropdown{
 	display: block;
 }
-div.cart-dropdown{
+.cart-dropdown{
 	display: none;
 	position: absolute;
 	top: 100%;
@@ -308,7 +310,14 @@ div.cart-dropdown{
 	display: flex;
 	margin-left: -15px;
 }
-
+.box {
+	display: flex;
+	flex-wrap: wrap;
+}
+.box-products {
+	display: flex;
+	flex-wrap: wrap;
+}
 .pro-box img {
 	width: 100%;
 	display: block;

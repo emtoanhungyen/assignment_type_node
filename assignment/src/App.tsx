@@ -58,7 +58,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path='news' element={<News />} />
             <Route path='products'  >
-              <Route index element={<ProductsList />} />
+              <Route index element={<ProductsList product={products} />} />
               <Route path=':id' element={<ProductDetail />} />
             </Route>
             <Route path='category' element={<ProductsCategory />} />
