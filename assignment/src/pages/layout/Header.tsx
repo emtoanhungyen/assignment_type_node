@@ -6,72 +6,117 @@ type Props = {}
 const Header = (props: Props) => {
     return (
         <div>
-            <header className="position-fixed w-100 z-auto">
-                <div className="top-bar">
-                    <div className="container">
-                        <div className="d-flex">
-                            <div className="topbar-email me-3">
-                                <i className="far fa-envelope me-2" />
-                                <a href="mailto:info@reen.com">toanpqph14805@gmail.com</a>
-                            </div>
-                            <div className="topbar-phone me-auto">
-                                <i className="fas fa-mobile-alt me-2" />
-                                <a href="tel:19005678">0123456789</a>
-                            </div>
-                            <div className="topbar-social">
-                                <a href="#" target="_Blank"><i className="fab fa-facebook-f me-3" /></a>
-                                <a href="#"><i className="fab fa-google me-3" /></a>
-                                <a href="#"><i className="fab fa-pinterest me-3" /></a>
-                                <a href="#"><i className="fab fa-behance me-3" /></a>
+            <div className="header">
+                <div className="container">
+                    <div className="d-flex">
+                        {/* LOGO */}
+                        <div className="logo">
+                            <a href="/">
+                                <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648878761/logo_b36lmk.png" />
+                            </a>
+                        </div>
+                        {/* MENU */}
+                        <ul className="menu">
+                            <li><a href="/">Trang chủ</a></li>
+                            <li>
+                                <a href="/products">Sản phẩm</a>
+                            </li>
+                            <li>
+                                <a href="/category">Danh mục sản phẩm <i className="fas fa-angle-down" /> </a>
+                                <ul className="child">
+                                    <li><a href="#"> Menu 1 <i className="fas fa-angle-right" /> </a>
+                                        <ul className="child2">
+                                            <li><a href="#">Menu</a></li>
+                                            <li><a href="#">Menu 2</a></li>
+                                            <li><a href="#">Menu 3</a></li>
+                                            <li><a href="#">Menu 4</a></li>
+                                            <li><a href="#">Menu 5</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#"> Menu 2  <i className="fas fa-angle-right" /> </a>
+                                        <ul className="child2">
+                                            <li><a href="#">Menu</a></li>
+                                            <li><a href="#">Menu 2</a></li>
+                                            <li><a href="#">Menu 3</a></li>
+                                            <li><a href="#">Menu 4</a></li>
+                                            <li><a href="#">Menu 5</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Menu 3</a></li>
+                                    <li><a href="#">Menu 4</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Sales</a></li>
+                            <li>
+                                <a href="#">Tài khoản <i className="fas fa-angle-down" /> </a>
+                                <ul className="child">
+                                    <li><a href="/signup"> Đăng ký <i className="fas fa-angle-right" /> </a>
+                                    </li>
+                                    <li><a href="/login"> Đăng nhập  <i className="fas fa-angle-right" /> </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        {/* CART*/}
+                        <div className="cart-box">
+                            <a className="cart-btn" href="#">
+                                $20.00 <i className="fas fa-shopping-cart" />
+                                <span>2</span>
+                            </a>
+                            <div className="cart-dropdown">
+                                <table>
+                                    <tbody><tr>
+                                        <td width={30}>
+                                            <a href="#"><i className="fas fa-times-circle" /></a>
+                                        </td>
+                                        <td><a href="#"><img src="img/a.png" /> </a></td>
+                                        <td>
+                                            <p>
+                                                <a href="#"><b> Men's quality green shorts</b></a>
+                                            </p>
+                                            <div> 20$</div>
+                                            <div> <input type="number" defaultValue={1} /></div>
+                                        </td><td width={80}> 20$</td>
+                                    </tr>
+                                        <tr>
+                                            <td width={30}>
+                                                <a href="#"><i className="fas fa-times-circle" /></a>
+                                            </td>
+                                            <td width={50}><a href="#"><img src="img/b.png" /> </a></td>
+                                            <td>
+                                                <p>
+                                                    <a href="#"><b> Men's quality green shorts</b></a>
+                                                </p>
+                                                <div> 20$</div>
+                                                <div> <input type="number" defaultValue={1} /></div>
+                                            </td><td width={80}> 20$</td>
+                                        </tr>
+                                        <tr>
+                                            <td width={30}>
+                                                <a href="#"><i className="fas fa-times-circle" /></a>
+                                            </td>
+                                            <td width={50}><a href="#"><img src="img/c.png" /> </a></td>
+                                            <td>
+                                                <p>
+                                                    <a href="#"><b> Men's quality green shorts</b></a>
+                                                </p>
+                                                <div> 20$</div>
+                                                <div> <input type="number" defaultValue={1} /></div>
+                                            </td><td width={80}> 20$</td>
+                                        </tr>
+                                    </tbody></table>
+                                <p className="text-right cart-total"> 180$</p>
+                                <p className="text-right">
+                                    <a href="cart.html" className="cart-btn1"> view cart</a>
+                                    <a href="check out.html" className="cart-btn1"> proces to checkout</a>
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* Navigation ( thanh menu) */}
-                <div>
-                    <div className="header">
-                        <nav className="navbar navbar-expand-lg navbar-light">
-                            <div className="container">
-                                <a className="logo" href="/">
-                                    <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1645286901/Logo_rbcynk.png" />
-                                </a>
-                                {/* MOBILE BUTTON */}
-                                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span className="navbar-toggler-icon" />
-                                </button>
-                                <div className="collapse navbar-collapse" id="navbar">
-                                    {/* MENU */}
-                                    <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-                                        {/* FORM */}
-                                        <li className="nav-item">
-                                            <NavLink className="nav-link" to="/">Trang chủ</NavLink>
-                                        </li>
-                                        <li className="nav-item">
-                                            <NavLink className="nav-link" to="/news">Bài Viết</NavLink>
-                                        </li>
-                                        <li className="nav-item">
-                                            <NavLink className="nav-link" to="/products">Sản phẩm</NavLink>
-                                        </li>
-                                        <div className="dropdown">
-                                            <a href="#" data-bs-toggle="dropdown" className="nav-link">
-                                                <i className="fas fa-search" /></a>
-                                            <div className="dropdown-menu menu p-3">
-                                                <p><input type="text" className="form-control" placeholder="Search..." /></p>
-                                                <button className="btn btn-outline-success"> Search</button>
-                                            </div>
-                                        </div>
-                                    </ul>
-                                </div>
-                                
-                                <button className="btn btn-outline-success" type="submit">
-                                    <NavLink to='/login'>Đăng nhập</NavLink>
-                                </button>
-                            </div>
-                        </nav></div>
+            </div>
 
-                </div>
-            </header>
-        </div>
+        </div >
     )
 }
 

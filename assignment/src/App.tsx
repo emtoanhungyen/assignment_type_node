@@ -10,9 +10,12 @@ import ProductList from './pages/admin/product/ProductList'
 import Home from './pages/Home'
 import LayoutAdmin from './pages/layout/LayoutAdmin'
 import LayoutHome from './pages/layout/LayoutHome'
+import LayoutCart from './pages/LayoutCart'
 import Login from './pages/Login'
 import News from './pages/News'
-import Products from './pages/Products'
+import ProductDetail from './pages/ProductDetail'
+import ProductsCategory from './pages/ProductsCategory'
+import ProductsList from './pages/ProductsList'
 import Signup from './pages/Signup'
 import { TypeProduct } from './types/products'
 import { TypeUser } from './types/user'
@@ -22,8 +25,8 @@ function App() {
   const [users, setUsers] = useState<TypeUser[]>([]);
   useEffect(() => {
     const getProducts = async () => {
-        const { data } = await list();
-        setProducts(data);
+      const { data } = await list();
+      setProducts(data);
     };
     getProducts();
   }, [])
@@ -37,13 +40,9 @@ function App() {
     //reRender
     setProducts(products.filter(item => item.id !== id));
   }
-  // const onHandleAdd = async (product: IProduct) => {
-  //   const { data } = await add(product);
-  //   setProducts([...products, data]);
-  // };
   const onHandleUpdate = async (product: TypeProduct) => {
     const { data } = await update(product);
-    setProducts(product.map(item => item.id == data.id ? data: item))
+    setProducts(product.map(item => item.id == data.id ? data : item))
   }
   const onHandleSignup = async (user: TypeUser) => {
     const { data } = await dangky(user);
@@ -58,13 +57,18 @@ function App() {
           <Route path="/" element={<LayoutHome />}>
             <Route index element={<Home />} />
             <Route path='news' element={<News />} />
-            <Route path='products' element={<Products products={products} />} />
+            <Route path='products'  >
+              <Route index element={<ProductsList />} />
+              <Route path=':id' element={<ProductDetail />} />
+            </Route>
+            <Route path='category' element={<ProductsCategory />} />
+            {/* <Route path='products' element={<Products products={products} />} /> */}
+            <Route path='cart' element={<LayoutCart />} />
           </Route>
           {/* Router admin */}
-          <Route path='/admin' element={ <PrivteRoute><LayoutAdmin /></PrivteRoute>}>
+          <Route path='/admin' element={<PrivteRoute><LayoutAdmin /></PrivteRoute>}>
             <Route index element={<Navigate to="dashboard" />} />
             <Route path='dashboard' element={<Dashboard />} />
-
             <Route path='products'>
               <Route index element={<ProductList products={products} onRemove={removeProduct} />} />
               <Route path='add' element={<ProductAdd onAdd={addProduct} />} />
@@ -72,8 +76,8 @@ function App() {
             </Route>
           </Route>
           {/* Router đăng ký đăng nhập */}
-          <Route path='login' element={<Login />}/>
-          <Route path='signup' element={<Signup onAdd={onHandleSignup}  />}/>
+          <Route path='login' element={<Login />} />
+          <Route path='signup' element={<Signup onAdd={onHandleSignup} />} />
         </Routes>
 
         {/* <Routes>

@@ -12,8 +12,8 @@ const PrivteRoute = (props: PrivteRouteProps) => {
     const { user: { role } } = isAuthenticate();
     // const role = true;
     if(!role){
-        toastr.info('Bạn không có quyền truy cập.');
         return <Navigate to="/login"/>
+        // toastr.info('Bạn không có quyền truy cập.');
     }
     return props.children
 }

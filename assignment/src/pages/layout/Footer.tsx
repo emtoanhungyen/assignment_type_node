@@ -5,71 +5,55 @@ type Props = {}
 const Footer = (props: Props) => {
     return (
         <div>
-            <footer>
-                {/* Footer */}
-                <div className="footer">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-3">
-                                <h5> Who are We</h5>
-                                <a href="#">
-                                    <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1645286901/Logo_rbcynk.png" />
-                                </a>
-                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <p> <a href="#"> More About Us <i className="fas fa-arrow-right" /></a></p>
-                            </div>
-                            <div className="col-md-2">
-                                <h5>USEFUL LINKS</h5>
-                                <p><a href="#">FAQ</a></p>
-                                <p><a href="#">Terms and Condition</a></p>
-                                <p><a href="#">Privacy Policy</a></p>
-                                <p><a href="#">Sitemap</a></p>
-                                <p><a href="#">Contact Us</a></p>
-                            </div>
-                            <div className="col-md-3">
-                                <h5>Get in touch</h5>
-                                <p> Doloreiur quia commolu ptatemp dolupta oreprerum tibusam eumenis et consent accullignis dentibea autem inisita.</p>
-                                <p>
-                                    <a href="#"><i className="fas fa-map-marker-alt me-2" /> 84 Street, City, State 24813</a></p>
-                                <p>
-                                    <i className="far fa-envelope me-2" />
-                                    <a href="mailto:info@reen.com">toanpqph14805@gmail.com</a>
-                                </p>
-                                <p> <i className="fas fa-mobile-alt me-2" />
-                                    <a href="tel:19005678">0123456789</a></p>
-                            </div>
-                            <div className="col-md-4"><h5>Newsletter</h5>
-                                <p>Conecus iure posae volor remped modis aut lor volor accabora incim resto explabo.
-                                </p>
-                                <div className="search">
-                                    <div className="row">
-                                        <input type="text" placeholder="Enter Your Email" className="form-control" />
-                                        <button className="btn btn-outline-success" type="submit">Submit</button>
-                                    </div>
-                                </div>
-                            </div>
+            <div className=" footer">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-4">
+                            <a href="#">
+                                <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648878761/logo2_vyqotb.png" className="f-logo" />
+                            </a>
+                            <p><a href="#">reyfashion@gmail.com</a><br />
+                                <a href="#">18006868</a><br />
+                                <a href="#">FLC Twin Tower 265 Cau Giay, Hanoi </a> <br />
+                            </p>
                         </div>
-                    </div>
-                </div>
-
-
-                {/* COPYRIGHT */}
-                <div className="copyright">
-                    <div className="container">
-                        <div className="d-flex">
-                            <div className="me-auto">Copyright by Pham Quoc Toan</div>
-                            <ul className="list-unstyled mb-0 d-flex">
-                                <li> <a href="#">Home</a></li>
-                                <li> <a href="#">About Us</a></li>
-                                <li> <a href="#">Porfolio</a></li>
-                                <li> <a href="#">Shop</a></li>
-                                <li> <a href="#">Contact Us</a></li>
+                        <div className="col-2">
+                            <h5> Shop</h5>
+                            <ul>
+                                <li><a href="#"> Tshirts</a></li>
+                                <li><a href="#"> Jacket</a></li>
+                                <li><a href="#"> Pants</a></li>
+                                <li><a href="#"> Jeans</a></li>
+                                <li><a href="#"> Accessories </a></li>
+                                <li><a href="#"> Shose </a></li>
                             </ul>
                         </div>
+                        <div className="col-2">
+                            <h5> Customer</h5>
+                            <ul>
+                                <li><a href="#">Delivery</a></li>
+                                <li><a href="#"> Order Status</a></li>
+                                <li><a href="#"> Returns</a></li>
+                                <li><a href="#"> Payment Options</a></li>
+                                <li><a href="#">Contact Us </a></li>
+                            </ul>
+                        </div>
+                        <div className="col-4">
+                            <h5> News Letter</h5>
+                            <p className="social">
+                                <a href="#"><i className="fab fa-facebook-f" /></a>
+                                <a href="#"><i className="fab fa-instagram" /></a>
+                                <a href="#"><i className="fab fa-twitter" /></a>
+                                <a href="#"><i className="fab fa-pinterest-p" /></a>
+                            </p>
+                        </div>
+                    </div>
+                    <div className="footer-copy">
+                        Phạm Quốc Toản
                     </div>
                 </div>
+            </div>
 
-            </footer>
         </div>
     )
 }
