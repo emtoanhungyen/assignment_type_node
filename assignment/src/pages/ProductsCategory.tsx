@@ -15,7 +15,7 @@ const ProductsCategory = (props: Props) => {
             <div className="cate">
                 <div className="container">
                     <div className="row">
-                        <div className="col-4">
+                        <div className="col-category">
                             <div className="cate-box1">
                                 <a href="#">
                                     <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648879979/8_tsbmuf.png" />
@@ -23,7 +23,7 @@ const ProductsCategory = (props: Props) => {
                                 </a>
                             </div>
                         </div>
-                        <div className="col-4">
+                        <div className="col-category">
                             <div className="cate-box1">
                                 <a href="#">
                                     <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648879837/3_kqi64b.jpg" />
@@ -31,7 +31,7 @@ const ProductsCategory = (props: Props) => {
                                 </a>
                             </div>
                         </div>
-                        <div className="col-4">
+                        <div className="col-category">
                             <div className="cate-box1">
                                 <a href="#">
                                     <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648879979/10_aiottn.png" />
@@ -41,7 +41,7 @@ const ProductsCategory = (props: Props) => {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-4">
+                        <div className="col-category">
                             <div className="cate-box1">
                                 <a href="#">
                                     <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648879978/9_lrwxog.png" />
@@ -49,7 +49,7 @@ const ProductsCategory = (props: Props) => {
                                 </a>
                             </div>
                         </div>
-                        <div className="col-4">
+                        <div className="col-category">
                             <div className="cate-box1">
                                 <a href="#">
                                     <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648879837/4_r4zcsu.jpg" />
@@ -57,7 +57,7 @@ const ProductsCategory = (props: Props) => {
                                 </a>
                             </div>
                         </div>
-                        <div className="col-4">
+                        <div className="col-category">
                             <div className="cate-box1">
                                 <a href="#">
                                     <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648879837/4_r4zcsu.jpg" />

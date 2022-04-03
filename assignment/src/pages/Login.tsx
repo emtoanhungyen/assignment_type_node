@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { login } from '../api/user';
 import { authenticated } from '../utils/localStorage';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import toastr from 'toastr';
 import "toastr/build/toastr.min.css";
 type InputForm = {
@@ -27,47 +27,22 @@ const Login = () => {
     }
   }
   return (
-    <div>
-      <div className="container" id="container">
-        <div className="form-container sign-up-container">
-          <form action="#">
-            <h1>Create Account</h1>
-            <div className="social-container">
-              <a href="#" className="social"><i className="fab fa-facebook-f" /></a>
-              <a href="#" className="social"><i className="fab fa-google-plus-g" /></a>
-              <a href="#" className="social"><i className="fab fa-linkedin-in" /></a>
-            </div>
-            <span>or use your email for registration</span>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Sign Up</button>
-          </form>
-        </div>
-        <div className="form-container sign-in-container">
-          <form action="#">
-            <h1>Sign in</h1>
-            <div className="social-container">
-              <a href="#" className="social"><i className="fab fa-facebook-f" /></a>
-              <a href="#" className="social"><i className="fab fa-google-plus-g" /></a>
-              <a href="#" className="social"><i className="fab fa-linkedin-in" /></a>
-            </div>
-            <span>or use your account</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <a href="#">Forgot your password?</a>
-            <button>Sign In</button>
-          </form>
-        </div>
-        
+    <div className='dangky'>
+      <div className="form-tt">
+        <h2>Đăng nhập</h2>
+        <form onSubmit={handleSubmit(onSubmit)} action="#" method="post" name="dang-ky">
+          <input type="email" placeholder="Email..." {...register('email', {required: true})}/>
+          <input type="password" placeholder="Password..." {...register('password', {required: true})} />
+          <input type="checkbox" id="checkbox" name="checkbox" /><label className="checkbox-text">Nhớ đăng nhập lần sau</label>
+          <input type="submit" name="submit" defaultValue="Đăng nhập" />
+          <label className="psw-text">Quên mật khẩu</label>
+          <br />
+          <label className="psw-text"><Link to='/signup'>Bạn chưa có tài khoản?</Link></label>
+          <br />
+          <label className="psw-text"><Link to='/'> Về trang chủ</Link></label>
+        </form>
       </div>
-      <footer>
-        <p>
-          Copyright by Pham Quoc Toan
-        </p>
-      </footer>
     </div>
-
   )
 }
 
