@@ -1,3 +1,4 @@
+import { Navigate } from "react-router-dom";
 import { TypeUser } from "../types/user";
 
 export const authenticated = (user: TypeUser, next: () => void ) => {

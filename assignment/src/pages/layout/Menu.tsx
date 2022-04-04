@@ -35,15 +35,17 @@ const Menu = (props: Props) => {
                 </ul>
             </li>
             <li><a href="#">Bài viết</a></li>
-            <li>
-                <a href="#">Tài khoản <i className="fas fa-angle-down" /> </a>
-                <ul className="child">
-                    <li><a href="/signup"> Đăng ký <i className="fas fa-angle-right" /> </a>
-                    </li>
-                    <li><a href="/login"> Đăng nhập  <i className="fas fa-angle-right" /> </a>
-                    </li>
-                </ul>
-            </li>
+            {localStorage.getItem('user') ? <li> <a href="" onClick={() => localStorage.removeItem('user')}> Đăng xuất</a>
+                </li>
+                : <li>
+                    <a href="#">Tài khoản <i className="fas fa-angle-down" /> </a>
+                    <ul className="child">
+                        <li><a href="/signup"> Đăng ký <i className="fas fa-angle-right" /> </a>
+                        </li>
+                        <li><a href="/login"> Đăng nhập  <i className="fas fa-angle-right" /> </a>
+                        </li>
+                    </ul>
+                </li>}
         </ul>
     )
 }

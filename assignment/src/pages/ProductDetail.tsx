@@ -10,7 +10,7 @@ const ProductDetail = (props: Props) => {
                 <div className="container">
                     <div className="d-flex">
                         <ul className="menu-detail-box">
-                            <li><a href="#" className="active active-home">Home</a></li>
+                            <li><a href="/" className="active active-home">Home</a></li>
                             <li><a href="#" className="active">Man</a></li>
                             <li><a href="#">Puma Downtown Graphic Tee</a></li>
                         </ul>

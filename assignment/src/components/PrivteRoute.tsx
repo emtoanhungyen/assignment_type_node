@@ -10,10 +10,9 @@ type PrivteRouteProps = {
 
 const PrivteRoute = (props: PrivteRouteProps) => {
     const { user: { role } } = isAuthenticate();
-    // const role = true;
+    // const role = false;
     if(!role){
         return <Navigate to="/login"/>
-        // toastr.info('Bạn không có quyền truy cập.');
     }
     return props.children
 }

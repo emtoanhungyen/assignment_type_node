@@ -38,11 +38,11 @@ function App() {
   const removeProduct = (id: string) => {
     remove(id);
     //reRender
-    setProducts(products.filter(item => item.id !== id));
+    // setProducts(products.filter(item => item._id !== id));
   }
   const onHandleUpdate = async (product: TypeProduct) => {
     const { data } = await update(product);
-    setProducts(product.map(item => item.id == data.id ? data : item))
+    setProducts(product.map(item => item._id == data._id ? data : item))
   }
   const onHandleSignup = async (user: TypeUser) => {
     const { data } = await dangky(user);
@@ -66,7 +66,7 @@ function App() {
             <Route path='cart' element={<LayoutCart />} />
           </Route>
           {/* Router admin */}
-          <Route path='/admin' element={<PrivteRoute><LayoutAdmin /></PrivteRoute>}>
+          <Route path='admin' element={<PrivteRoute> <LayoutAdmin /> </PrivteRoute>}>
             <Route index element={<Navigate to="dashboard" />} />
             <Route path='dashboard' element={<Dashboard />} />
             <Route path='products'>
@@ -79,25 +79,6 @@ function App() {
           <Route path='login' element={<Login />} />
           <Route path='signup' element={<Signup onAdd={onHandleSignup} />} />
         </Routes>
-
-        {/* <Routes>
-          <Route path="/" element={ < Websitelayout />}>
-            <Route index element={ < Home />}/>
-            <Route path="/product" element={ <h1>Hiển thị Products</h1> }/>
-            <Route path="/about" element={ <h1>Hiển thị About</h1> }/>
-            <Route path="/signin" element={ <Signin /> }/>
-            <Route path="/signup" element={ <Signup onAdd={onHandleSignup} /> }/>
-          </Route>
-
-          <Route path="admin" element={ <AdminLayout />}>
-            <Route path="products">
-                <Route index element={ <ProductList products={products} /> } />
-                <Route path="add" element={ <ProductAdd name="Toan" onAdd={onHandleAdd} />} />
-                <Route path=":id/edit" element={ <ProductEdit onUpdate={onHandleUpdate} /> } />
-            </Route>
-          </Route>
-
-        </Routes> */}
       </main>
     </div>
   )

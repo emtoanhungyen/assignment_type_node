@@ -37,9 +37,9 @@ const Signup = (props: SignupProps) => {
       <div className="form-tt">
         <h2>Đăng ký</h2>
         <form onSubmit={handleSubmit(onSubmit)} action="#" method="post" name="dang-ky">
-          <input type="text" placeholder="Name..." {...register('name', {required: true})}/>
+          <input type="text" placeholder="Name..." {...register('name', {required: true, minLength: 4, maxLength: 23})}/>
           <input type="email" placeholder="Email..." {...register('email', {required: true})}/>
-          <input type="password" placeholder="Password..." {...register('password', {required: true})} />
+          <input type="password" placeholder="Password..." {...register('password', {required: true, minLength: 4, maxLength: 13 })} />
           <input type="submit" name="submit" defaultValue="Đăng ký" />
           <label className="psw-text">Quên mật khẩu</label>
           <br/>

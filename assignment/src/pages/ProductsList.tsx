@@ -63,7 +63,7 @@ const ProductsList = (props: Props) => {
                                             </div>
                                             <span className="small">New</span>
                                             <h4 className="pro-item-name">
-                                                <a href="#">{item.name}</a>
+                                                <a href={`/products/${item._id}`}>{item.name}</a>
                                             </h4>
                                             <div className="pro-item-price">{item.price}$ </div>
                                         </div>
