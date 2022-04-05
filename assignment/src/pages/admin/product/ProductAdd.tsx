@@ -7,11 +7,13 @@ import "toastr/build/toastr.min.css";
 type ProductAddProps = {
   name: String,
   price: Number,
+  details: String,
   onAdd: (product: InputForm) => void
 }
 type InputForm = {
   name: string,
-  price: number
+  price: number,
+  details: string
 }
 
 const ProductAdd = (props: ProductAddProps) => {
@@ -40,10 +42,10 @@ const ProductAdd = (props: ProductAddProps) => {
           <label htmlFor="exampleInputPassword1">Price</label>
           <input type="number" className="form-control" id="exampleInputPassword1" placeholder="Price" {...register('price')} />
         </div>
-        {/* <div className="form-check">
-          <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-          <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-        </div> */}
+        <div className="form-group">
+          <label htmlFor="exampleInputPassword1">Detail</label>
+          <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Details" {...register('details')} />
+        </div>
         <button type="submit" className="btn text-primary border border-primary">Add</button>
       </form>
 

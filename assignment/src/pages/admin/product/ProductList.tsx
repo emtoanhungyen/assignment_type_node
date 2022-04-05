@@ -9,25 +9,28 @@ type Props = {
 
 const ProductList = (props: Props) => {
   return (
-    <div>
-      <table>
+    <div className='table_product_admin'>
+      <h2>Danh sách Products</h2>
+      <table className='table_productslist'>
         <thead>
           <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Price</th>
-            <th></th>
+            <th className='th'>STT</th>
+            <th className='th'>Name</th>
+            <th className='th'>Price</th>
+            <th className='th'>Detail</th>
+            <th className='th'></th>
           </tr>
         </thead>
         <tbody>
           {props.products.map( (item, index) => {
             return <tr key={index}>
-              <td>{index + 1}</td>
-              <td>{item.name}</td>
-              <td>{item.price}</td>
-              <td>
-                <a href={`/admin/products/${item._id}/edit`}>Edit</a>
-                <button onClick={ () => {props.onRemove(item._id)}}>Remove</button>
+              <td className='td-1'>{index + 1}</td>
+              <td className='td'>{item.name}</td>
+              <td className='td'>{item.price}</td>
+              <td className='td'>{item.details}</td>
+              <td className='td'>
+                <a className='edit' href={`/admin/products/${item._id}/edit`}>Edit</a>
+                <button className='remove' onClick={ () => {props.onRemove(item._id)}}>Remove</button>
               </td>
             </tr>
           })}

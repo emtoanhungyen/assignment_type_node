@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { SubmitHandler } from 'react-hook-form';
 import { useParams } from 'react-router-dom'
 import { read } from '../api/product';
 import { TypeProduct } from '../types/products';
@@ -14,7 +15,7 @@ const ProductDetail = (props: Props) => {
             setProducts(data)
         }
         productDetail();
-    })
+    }, [])
     return (
         <div>
             {/* MENU DETAIL */}
@@ -54,13 +55,13 @@ const ProductDetail = (props: Props) => {
                             </a>
                         </div>
                         <div className="col-4">
-                            <h3>Puma Downtown Graphic Tee</h3>
+                            <h3>{product?.name}</h3>
                             <div className="product-code">
                                 <p>SKU: SP00001</p>
                             </div>
                             <div className="sale">
-                                <span className="pro-sale">$40.00</span>
-                                <div className="product-item-price">$30.00</div>
+                                {/* <span className="pro-sale">$40.00</span> */}
+                                <div className="product-item-price">{product?.price} $</div>
                             </div>
                             <h4>SIZE</h4>
                             <p className="form-size">
@@ -104,8 +105,8 @@ const ProductDetail = (props: Props) => {
             <div className="detail">
                 <div className="container">
                     <h4>DETAILS</h4>
-                    <p>Graphic-topped tee by Puma crafted from 100% cotton. Short sleeve t-shirt finished with a rib-knit crew neck.</p>
-                    <div>
+                    <p>{product?.details}</p>
+                    {/* <div>
                         <ul className="care">
                             <li>Content + Care</li>
                             <li>- 100% Cotton</li>
@@ -120,7 +121,7 @@ const ProductDetail = (props: Props) => {
                             <li>- Chest: 22"</li>
                             <li>- Length: 27.5"</li>
                         </ul>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             {/* SIZE GUIDE */}

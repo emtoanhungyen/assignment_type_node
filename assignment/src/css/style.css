@@ -1161,3 +1161,24 @@ table.timetable, .timetable td, .timetable th {
 	line-height: 24px;
 	font-weight: 400;
 }
+
+/*  */
+.table_product_admin {
+	width: 100%;
+	margin-top: 10px;
+}
+.table_product_admin h2 {
+	text-align: center;
+}
+.table_productslist {
+	text-align: center;
+	margin-left: 20px;
+	border: 1px solid #ccc;
+}
+.th {
+	width: 8%;
+	border-bottom: 1px solid #ccc;
+}
+.td, .td-1 {
+	border-bottom: 1px solid #ccc;
+}

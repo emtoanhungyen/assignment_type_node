@@ -20,16 +20,19 @@ import Signup from './pages/Signup'
 import { TypeProduct } from './types/products'
 import { TypeUser } from './types/user'
 function App() {
-  // const [count, setCount] = useState(0)
+
   const [products, setProducts] = useState<TypeProduct[]>([]);
   const [users, setUsers] = useState<TypeUser[]>([]);
+
   useEffect(() => {
     const getProducts = async () => {
       const { data } = await list();
       setProducts(data);
     };
     getProducts();
-  }, [products]);
+  }, []); 
+// products
+
 
   const addProduct = async (product: TypeProduct) => {
     const { data } = await add(product);
