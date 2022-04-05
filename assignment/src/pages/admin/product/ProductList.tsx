@@ -26,8 +26,8 @@ const ProductList = (props: Props) => {
               <td>{item.name}</td>
               <td>{item.price}</td>
               <td>
-                <Link to={`/admin/products/${item._id}/edit`}>Edit</Link>
-                <button type='submit'>Remove</button>
+                <a href={`/admin/products/${item._id}/edit`}>Edit</a>
+                <button onClick={ () => {props.onRemove(item._id)}}>Remove</button>
               </td>
             </tr>
           })}

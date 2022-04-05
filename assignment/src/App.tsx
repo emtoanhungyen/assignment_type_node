@@ -29,7 +29,7 @@ function App() {
       setProducts(data);
     };
     getProducts();
-  }, [])
+  }, [products]);
 
   const addProduct = async (product: TypeProduct) => {
     const { data } = await add(product);
@@ -38,11 +38,11 @@ function App() {
   const removeProduct = (id: string) => {
     remove(id);
     //reRender
-    // setProducts(products.filter(item => item._id !== id));
+    setProducts(products.filter(item => item._id !== id));
   }
-  const onHandleUpdate = async (product: TypeProduct) => {
+  const updateProduct = async (product: TypeProduct) => {
     const { data } = await update(product);
-    setProducts(product.map(item => item._id == data._id ? data : item))
+    setProducts(products.map( item => item._id == data._id ? data : item));
   }
   const onHandleSignup = async (user: TypeUser) => {
     const { data } = await dangky(user);
@@ -67,12 +67,14 @@ function App() {
           </Route>
           {/* Router admin */}
           <Route path='admin' element={<PrivteRoute> <LayoutAdmin /> </PrivteRoute>}>
+
             <Route index element={<Navigate to="dashboard" />} />
             <Route path='dashboard' element={<Dashboard />} />
+
             <Route path='products'>
               <Route index element={<ProductList products={products} onRemove={removeProduct} />} />
               <Route path='add' element={<ProductAdd onAdd={addProduct} />} />
-              <Route path=':id/edit' element={<ProductEdit onUpdate={onHandleUpdate} />} />
+              <Route path=':id/edit' element={<ProductEdit onUpdate={updateProduct} />} />
             </Route>
           </Route>
           {/* Router đăng ký đăng nhập */}

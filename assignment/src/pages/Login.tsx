@@ -16,6 +16,8 @@ const Login = () => {
   const onSubmit: SubmitHandler<InputForm> = async (data: any) => {
     try {
       const { data: user } = await login(data);
+      console.log(user.name);
+      
       authenticated(user, () => {
 
         Navigate("/");

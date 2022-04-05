@@ -1,8 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+import { read } from '../api/product';
+import { TypeProduct } from '../types/products';
 
 type Props = {}
 
 const ProductDetail = (props: Props) => {
+    const { id } = useParams();
+    const [product, setProducts] = useState<TypeProduct>();
+    useEffect(() => {
+        const productDetail = async () => {
+            const { data } = await read(id);
+            setProducts(data)
+        }
+        productDetail();
+    })
     return (
         <div>
             {/* MENU DETAIL */}

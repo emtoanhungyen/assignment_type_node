@@ -15,7 +15,7 @@ type EditForm = {
     price: number
 }
 
-const ProductEdit = async (props: ProductEditProps) => {
+const ProductEdit =  (props: ProductEditProps) => {
     const { register, handleSubmit, formState: { errors }, reset } = useForm<EditForm>();
     const Navigate = useNavigate();
     const { id } = useParams();
@@ -31,10 +31,10 @@ const ProductEdit = async (props: ProductEditProps) => {
         try {
             props.onUpdate(data);
             toastr.success("Update thành công")
-            Navigate('/products')
+            Navigate('/admin/products')
         } catch (error) {
             toastr.error("Update thất bại")
-            Navigate('/products')
+            Navigate('/admin/products')
         }
 
     }
@@ -42,11 +42,11 @@ const ProductEdit = async (props: ProductEditProps) => {
         <form onSubmit={handleSubmit(onSubmit)}>
             <div>
                 <label>Name</label>
-                <input type="text" placeholder="Name" {...register('name', { required: true })} />
+                <input type="text" placeholder="Name" {...register('name', { required: true, minLength: 3, maxLength: 20 })} />
             </div>
             <div>
                 <label>Price</label>
-                <input type="number" placeholder="Price" {...register('price')} />
+                <input type="number" placeholder="Price" {...register('price', {required: true, maxLength: 9})} />
             </div>
             <button type="submit" >Update</button>
         </form>

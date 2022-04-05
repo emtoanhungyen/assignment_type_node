@@ -319,6 +319,7 @@ div.cart-box:hover .cart-dropdown{
 	flex-wrap: wrap;
 }
 .box-products {
+	align-items: center;
 	display: flex;
 	flex-wrap: wrap;
 }
