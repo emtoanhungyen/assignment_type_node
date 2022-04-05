@@ -22,7 +22,7 @@ const ProductList = (props: Props) => {
           </tr>
         </thead>
         <tbody>
-          {props.products.map( (item, index) => {
+          {props.products.map((item, index) => {
             return <tr key={index}>
               <td className='td-1'>{index + 1}</td>
               <td className='td'>{item.name}</td>
@@ -30,7 +30,7 @@ const ProductList = (props: Props) => {
               <td className='td'>{item.details}</td>
               <td className='td'>
                 <a className='edit' href={`/admin/products/${item._id}/edit`}>Edit</a>
-                <button className='remove' onClick={ () => {props.onRemove(item._id)}}>Remove</button>
+                <button className='remove' onClick={() => { props.onRemove(item._id) }}>Remove</button>
               </td>
             </tr>
           })}

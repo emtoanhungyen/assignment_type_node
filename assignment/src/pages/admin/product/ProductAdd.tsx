@@ -48,7 +48,6 @@ const ProductAdd = (props: ProductAddProps) => {
         </div>
         <button type="submit" className="btn text-primary border border-primary">Add</button>
       </form>
-
     </div>
   )
 }

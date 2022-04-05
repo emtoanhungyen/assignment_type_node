@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Navigate, NavLink, Route, Routes } from 'react-router-dom'
+import { getAllCategory, postCategory } from './api/category'
 import { add, list, remove, update } from './api/product'
 import { dangky } from './api/user'
 import PrivteRoute from './components/PrivteRoute'
+import CategoryAdd from './pages/admin/category/CategoryAdd'
+import CategoryList from './pages/admin/category/CategoryList'
 import Dashboard from './pages/admin/Dashboard'
 import ProductAdd from './pages/admin/product/ProductAdd'
 import ProductEdit from './pages/admin/product/ProductEdit'
@@ -17,11 +20,13 @@ import ProductDetail from './pages/ProductDetail'
 import ProductsCategory from './pages/ProductsCategory'
 import ProductsList from './pages/ProductsList'
 import Signup from './pages/Signup'
+import { TypeCategory } from './types/category'
 import { TypeProduct } from './types/products'
 import { TypeUser } from './types/user'
 function App() {
 
   const [products, setProducts] = useState<TypeProduct[]>([]);
+  const [categorys, setCategorys] = useState<TypeCategory[]>([]);
   const [users, setUsers] = useState<TypeUser[]>([]);
 
   useEffect(() => {
@@ -31,9 +36,15 @@ function App() {
     };
     getProducts();
   }, []); 
-// products
+  useEffect(() => {
+    const getCategory = async () => {
+      const { data } = await getAllCategory();
+      setCategorys(data);
+    };
+    getCategory();
+  }, []); 
 
-
+  // Products
   const addProduct = async (product: TypeProduct) => {
     const { data } = await add(product);
     setProducts([...products, data]);
@@ -51,6 +62,12 @@ function App() {
     const { data } = await dangky(user);
     setUsers([...users, data]);
   }
+  // Category
+  const addCategory = async ( category: TypeCategory ) => {
+    const { data } = await postCategory(category);
+    setCategorys([...categorys, data]);
+  }
+
 
   return (
     <div className="App">
@@ -78,6 +95,11 @@ function App() {
               <Route index element={<ProductList products={products} onRemove={removeProduct} />} />
               <Route path='add' element={<ProductAdd onAdd={addProduct} />} />
               <Route path=':id/edit' element={<ProductEdit onUpdate={updateProduct} />} />
+            </Route>
+
+            <Route path='categorys' >
+              <Route index element={ <CategoryList category={categorys}  />} />
+              <Route path='add' element={ <CategoryAdd onAdd={addCategory} />} />
             </Route>
           </Route>
           {/* Router đăng ký đăng nhập */}
