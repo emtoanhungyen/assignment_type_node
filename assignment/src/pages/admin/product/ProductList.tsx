@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { TypeCategory } from '../../../types/category';
 import { TypeProduct } from '../../../types/products'
 
 type Props = {
-  products: TypeProduct[];
+  products: TypeProduct[],
   onRemove: (id: string) => void
 }
 

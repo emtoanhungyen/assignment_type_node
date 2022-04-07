@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { getAllCategory } from '../../api/category'
+import { TypeCategory } from '../../types/category'
 import Menu from './Menu'
 
-type Props = {}
+type Props = {
+    category: TypeCategory[]
+}
 
 const Header = (props: Props) => {
+    const [categorys, setCategorys] = useState<TypeCategory[]>([]);
+    useEffect(() => {
+        const getCategory = async () => {
+            const { data } = await getAllCategory();
+            setCategorys(data);  
+        }
+        getCategory();
+    }, [])
     return (
         <div>
             <div className="header">

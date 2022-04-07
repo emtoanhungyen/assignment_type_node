@@ -28,7 +28,7 @@ const LayoutAdmin = (props: Props) => {
                                 </ul>
                             </li>
                             <li>
-                                <a href="/admin/categorys">Categorys </a>
+                                <a href="/admin/categorys">Category </a>
                                 <ul className="child">
                                     <li><a href="/admin/categorys/add">Add</a></li>
                                     <li><a href="/admin/categorys">List</a></li>

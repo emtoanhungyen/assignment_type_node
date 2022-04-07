@@ -1,8 +1,10 @@
 import React from 'react'
+import { TypeCategory } from '../types/category'
 import { TypeProduct } from '../types/products'
 
 type Props = {
-    product: TypeProduct[]
+    product: TypeProduct[],
+    category: TypeCategory[]
 }
 
 const ProductsList = (props: Props) => {
@@ -23,13 +25,16 @@ const ProductsList = (props: Props) => {
                             <h2>Filter</h2>
                             <h4>Category</h4>
                             <div className="lable1">
-                                <label htmlFor="man"><input type="radio" id="man" name="pick" defaultChecked />Man</label><br />
-                                <label htmlFor="woman"><input type="radio" id="woman" name="pick" />Woman</label><br />
+                                {props.category.map( item => {
+                                    return <li><input name='name' type="radio"/>{item.name}</li>
+                                })}
+                                
+                                {/* <label htmlFor="woman"><input type="radio" id="woman" name="pick" />Woman</label><br />
                                 <label htmlFor="tshirt"><input type="radio" id="tshirt" name="pick" />T-shirt</label><br />
                                 <label htmlFor="jeans"><input type="radio" id="jeans" name="pick" />Jeans</label><br />
                                 <label htmlFor="dess"><input type="radio" id="dress" name="pick" />Dress</label><br />
                                 <label htmlFor="jacket"><input type="radio" id="jacket" name="pick" />Jacket</label> <br />
-                                <label htmlFor="man"><input type="radio" id="man" name="pick" />Man</label><br />
+                                <label htmlFor="man"><input type="radio" id="man" name="pick" />Man</label><br /> */}
                             </div>
                             <h4>Size</h4>
                             <select>

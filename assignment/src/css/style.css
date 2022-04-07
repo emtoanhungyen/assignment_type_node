@@ -312,6 +312,7 @@ div.cart-box:hover .cart-dropdown{
 /* ROW */
 .row {
 	display: flex;
+	flex-wrap: wrap;
 	margin-left: -15px;
 }
 .box {
@@ -1181,4 +1182,9 @@ table.timetable, .timetable td, .timetable th {
 }
 .td, .td-1 {
 	border-bottom: 1px solid #ccc;
+}
+.category {
+	width: 200px;
+	margin-top: 10px;
+	border: 1px solid black;
 }

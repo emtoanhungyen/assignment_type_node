@@ -8,11 +8,13 @@ import { read } from '../../../api/product';
 type ProductEditProps = {
     name: String,
     price: Number,
+    details: String,
     onUpdate: (product: EditForm) => void
 }
 type EditForm = {
     name: string,
-    price: number
+    price: number,
+    details: string
 }
 
 const ProductEdit =  (props: ProductEditProps) => {
@@ -46,7 +48,11 @@ const ProductEdit =  (props: ProductEditProps) => {
             </div>
             <div>
                 <label>Price</label>
-                <input type="number" placeholder="Price" {...register('price', {required: true, maxLength: 9})} />
+                <input type="number" placeholder="Price" {...register('price', { maxLength: 9})} />
+            </div>
+            <div>
+                <label>Detail</label>
+                <input type="text" placeholder="Detail" {...register('details', { minLength: 5})} />
             </div>
             <button type="submit" >Update</button>
         </form>

@@ -1,24 +1,37 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import toastr from 'toastr';
 import "toastr/build/toastr.min.css";
+import { getAllCategory } from '../../../api/category';
+import { TypeCategory } from '../../../types/category';
 
 type ProductAddProps = {
   name: String,
   price: Number,
   details: String,
+  category: String,
   onAdd: (product: InputForm) => void
 }
 type InputForm = {
   name: string,
   price: number,
-  details: string
+  details: string,
+  category: string
 }
 
-const ProductAdd = (props: ProductAddProps) => {
+const ProductAdd =  (props: ProductAddProps) => {
+  const [categorys, setCategorys] = useState<TypeCategory[]>([]);
   const { register, handleSubmit, formState: { errors } } = useForm<InputForm>();
   const Navigate = useNavigate();
+  useEffect(() => {
+    const getCategory = async () => {
+      const { data } = await getAllCategory();
+      console.log(data);
+      setCategorys(data);
+    }
+    getCategory();
+  }, []);
   const onSubmit: SubmitHandler<InputForm> = data => {
     try {
       props.onAdd(data);
@@ -45,6 +58,14 @@ const ProductAdd = (props: ProductAddProps) => {
         <div className="form-group">
           <label htmlFor="exampleInputPassword1">Detail</label>
           <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Details" {...register('details')} />
+        </div>
+        <div className="form-group">
+          <label htmlFor="exampleInputPassword1">Category</label>
+          <select className='category' {...register('category', { required: true })}>
+            {categorys.map( item => {
+              <option value="0">{item.name}</option>
+            })}
+          </select>
         </div>
         <button type="submit" className="btn text-primary border border-primary">Add</button>
       </form>

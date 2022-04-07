@@ -1,6 +1,9 @@
 import React from 'react'
+import { TypeCategory } from '../types/category'
 
-type Props = {}
+type Props = {
+    // category: TypeCategory[]
+}
 
 const ProductsCategory = (props: Props) => {
     return (
@@ -15,14 +18,17 @@ const ProductsCategory = (props: Props) => {
             <div className="cate">
                 <div className="container">
                     <div className="row">
-                        <div className="col-category">
-                            <div className="cate-box1">
-                                <a href="#">
-                                    <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648879979/8_tsbmuf.png" />
-                                    <h4>jacket</h4>
-                                </a>
+                        {/* {props.category.map((item, index) => {
+                            return <div className="col-category">
+                                <div key={index} className="cate-box1">
+                                    <a href="#">
+                                        <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648879979/8_tsbmuf.png" />
+                                        <h4>{item.name}</h4>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        })} */}
+
                         <div className="col-category">
                             <div className="cate-box1">
                                 <a href="#">
@@ -39,8 +45,6 @@ const ProductsCategory = (props: Props) => {
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    <div className="row">
                         <div className="col-category">
                             <div className="cate-box1">
                                 <a href="#">

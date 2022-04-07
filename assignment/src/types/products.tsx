@@ -3,4 +3,5 @@ export interface TypeProduct{
     name: string,
     price: number,
     details?: string,
+    category: string
 }

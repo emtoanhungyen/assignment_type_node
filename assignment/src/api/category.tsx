@@ -11,7 +11,7 @@ export const getAllCategory = () => {
     return instance.get(url);
 }
 
-export const removeCategory = (id: string) => {
+export const removeCate = (id: string) => {
     const url = `/categorys/${id}`;
     return instance.delete(url);
 }
