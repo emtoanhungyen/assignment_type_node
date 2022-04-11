@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react'
 import { Navigate, NavLink, Route, Routes } from 'react-router-dom'
-import { getAllCategory, postCategory, removeCate } from './api/category'
+import { getAllCategory, postCategory, removeCate, updateCategory } from './api/category'
 import { add, list, remove, update } from './api/product'
 import { dangky } from './api/user'
 import PrivteRoute from './components/PrivteRoute'
 import CategoryAdd from './pages/admin/category/CategoryAdd'
+import CategoryEdit from './pages/admin/category/CategoryEdit'
 import CategoryList from './pages/admin/category/CategoryList'
 import Dashboard from './pages/admin/Dashboard'
 import ProductAdd from './pages/admin/product/ProductAdd'
 import ProductEdit from './pages/admin/product/ProductEdit'
 import ProductList from './pages/admin/product/ProductList'
+import CategoryDetail from './pages/CategoryDetail'
 import Home from './pages/Home'
 import LayoutAdmin from './pages/layout/LayoutAdmin'
 import LayoutHome from './pages/layout/LayoutHome'
@@ -35,15 +37,15 @@ function App() {
       setProducts(data);
     };
     getProducts();
-  }, []); 
-  
+  }, []);
+
   useEffect(() => {
     const getCategory = async () => {
       const { data } = await getAllCategory();
       setCategorys(data);
     };
     getCategory();
-  }, []); 
+  }, []);
 
   // Products
   const addProduct = async (product: TypeProduct) => {
@@ -51,9 +53,12 @@ function App() {
     setProducts([...products, data]);
   }
   const removeProduct = (id: string) => {
-    remove(id);
-    //reRender
-    setProducts(products.filter(item => item._id !== id));
+    const confirm = window.confirm('Bạn chắc chắn muốn xóa?');
+    if (confirm) {
+      remove(id);
+      //reRender
+      setProducts(products.filter(item => item._id !== id));
+    }
   }
   const updateProduct = async (product: TypeProduct) => {
     const { data } = await update(product);
@@ -65,16 +70,26 @@ function App() {
     setUsers([...users, data]);
   }
   // Category
-  const addCategory = async ( category: TypeCategory ) => {
+  const addCategory = async (category: TypeCategory) => {
     const { data } = await postCategory(category);
     setCategorys([...categorys, data]);
   }
   const removeCategory = (id: string) => {
-    removeCate(id);
-    //reRender
-    setCategorys(categorys.filter(item => item._id !== id));
+    const confirm = window.confirm('Bạn chắc chắn muốn xóa?');
+    if (confirm) {
+      removeCate(id);
+      //reRender
+      setCategorys(categorys.filter(item => item._id !== id));
+    }
   }
-
+  // const updateCategory = async (category: TypeCategory) => {
+  //   const { data } = await updateCategory(category);
+  //   setProducts(products.map(item => item._id == data._id ? data : item));
+  // }
+  const updateCate = async (category: TypeCategory) => {
+    const { data } = await updateCategory(category);
+    setCategorys(categorys.map(item => item._id == data._id ? data : item));
+  }
 
   return (
     <div className="App">
@@ -88,8 +103,11 @@ function App() {
               <Route index element={<ProductsList category={categorys} product={products} />} />
               <Route path=':id' element={<ProductDetail />} />
             </Route>
-            <Route path='category' element={<ProductsCategory />} />
-            {/* <Route path='products' element={<Products products={products} />} /> */}
+            <Route path='category' >
+              <Route index  element={<ProductsCategory category={categorys} />} />
+              <Route path=':id' element={ <CategoryDetail />} />
+            </Route>
+
             <Route path='cart' element={<LayoutCart />} />
           </Route>
           {/* Router admin */}
@@ -100,13 +118,14 @@ function App() {
 
             <Route path='products'>
               <Route index element={<ProductList products={products} onRemove={removeProduct} />} />
-              <Route path='add' element={<ProductAdd  onAdd={addProduct}  />} />
+              <Route path='add' element={<ProductAdd onAdd={addProduct} />} />
               <Route path=':id/edit' element={<ProductEdit onUpdate={updateProduct} />} />
             </Route>
 
             <Route path='categorys' >
-              <Route index element={ <CategoryList category={categorys} onRemove={removeCategory}  />} />
-              <Route path='add' element={ <CategoryAdd onAdd={addCategory} />} />
+              <Route index element={<CategoryList category={categorys} onRemove={removeCategory} />} />
+              <Route path='add' element={<CategoryAdd onAdd={addCategory} />} />
+              <Route path=':id/edit' element={<CategoryEdit update={updateCate} />} />
             </Route>
           </Route>
           {/* Router đăng ký đăng nhập */}

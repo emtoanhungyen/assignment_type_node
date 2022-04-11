@@ -25,7 +25,7 @@ const CategoryList = (props: Props) => {
                                 <td className='td-1'>{index + 1}</td>
                                 <td className='td'>{item.name}</td>
                                 <td className='td'>
-                                    <a className='edit' href={`/admin/products/${item.id}/edit`}>Edit</a>
+                                    <a className='edit' href={`/admin/categorys/${item._id}/edit`}>Edit</a>
                                     <button className='remove' type='submit' onClick={() => { props.onRemove(item._id) }}>Remove</button>
                                 </td>
                             </tr>

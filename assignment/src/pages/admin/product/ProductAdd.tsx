@@ -7,28 +7,23 @@ import { getAllCategory } from '../../../api/category';
 import { TypeCategory } from '../../../types/category';
 
 type ProductAddProps = {
-  name: String,
-  price: Number,
-  details: String,
-  category: String,
   onAdd: (product: InputForm) => void
 }
 type InputForm = {
   name: string,
   price: number,
   details: string,
-  category: string
+  category: string,
 }
 
 const ProductAdd =  (props: ProductAddProps) => {
-  const [categorys, setCategorys] = useState<TypeCategory[]>([]);
+  const [category, setCategory] = useState<TypeCategory[]>([]);
   const { register, handleSubmit, formState: { errors } } = useForm<InputForm>();
   const Navigate = useNavigate();
   useEffect(() => {
     const getCategory = async () => {
       const { data } = await getAllCategory();
-      console.log(data);
-      setCategorys(data);
+      setCategory(data);
     }
     getCategory();
   }, []);
@@ -61,9 +56,9 @@ const ProductAdd =  (props: ProductAddProps) => {
         </div>
         <div className="form-group">
           <label htmlFor="exampleInputPassword1">Category</label>
-          <select className='category' {...register('category', { required: true })}>
-            {categorys.map( item => {
-              <option value="0">{item.name}</option>
+          <select className='category' {...register('category')}>
+            {category.map( item => {
+              return <option value={`${item._id}`}>{item.name}</option>
             })}
           </select>
         </div>

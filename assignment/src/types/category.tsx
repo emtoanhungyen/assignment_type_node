@@ -1,4 +1,4 @@
 export interface TypeCategory{
-    id? : string,
+    _id? : string,
     name: string
 }

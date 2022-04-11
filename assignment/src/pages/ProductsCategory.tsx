@@ -2,7 +2,7 @@ import React from 'react'
 import { TypeCategory } from '../types/category'
 
 type Props = {
-    // category: TypeCategory[]
+    category: TypeCategory[]
 }
 
 const ProductsCategory = (props: Props) => {
@@ -18,57 +18,16 @@ const ProductsCategory = (props: Props) => {
             <div className="cate">
                 <div className="container">
                     <div className="row">
-                        {/* {props.category.map((item, index) => {
+                        {props.category.map((item, index) => {
                             return <div className="col-category">
                                 <div key={index} className="cate-box1">
-                                    <a href="#">
+                                    <a href={`/category/${item._id}`}>
                                         <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648879979/8_tsbmuf.png" />
                                         <h4>{item.name}</h4>
                                     </a>
                                 </div>
                             </div>
-                        })} */}
-
-                        <div className="col-category">
-                            <div className="cate-box1">
-                                <a href="#">
-                                    <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648879837/3_kqi64b.jpg" />
-                                    <h4>Pants</h4>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-category">
-                            <div className="cate-box1">
-                                <a href="#">
-                                    <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648879979/10_aiottn.png" />
-                                    <h4>jJeans</h4>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-category">
-                            <div className="cate-box1">
-                                <a href="#">
-                                    <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648879978/9_lrwxog.png" />
-                                    <h4>Tshirts</h4>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-category">
-                            <div className="cate-box1">
-                                <a href="#">
-                                    <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648879837/4_r4zcsu.jpg" />
-                                    <h4>Leather</h4>
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-category">
-                            <div className="cate-box1">
-                                <a href="#">
-                                    <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648879837/4_r4zcsu.jpg" />
-                                    <h4>jacket</h4>
-                                </a>
-                            </div>
-                        </div>
+                        })}
                     </div>
                 </div>
             </div>

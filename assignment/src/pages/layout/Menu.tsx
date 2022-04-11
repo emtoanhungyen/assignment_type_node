@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getAllCategory } from '../../api/category'
 import { TypeCategory } from '../../types/category'
 
 type Props = {
@@ -6,6 +7,15 @@ type Props = {
 }
 
 const Menu = (props: Props) => {
+    const [categorys, setCategorys] = useState<TypeCategory[]>([]);
+    useEffect(() => {
+        const getCategory = async () => {
+          const { data } = await getAllCategory();
+          setCategorys(data);
+        }
+        getCategory();
+      }, []);
+
     return (
         <ul className="menu">
             <li><a href="/">Trang chủ</a></li>
@@ -15,9 +25,9 @@ const Menu = (props: Props) => {
             <li>
                 <a href="/category">Danh mục sản phẩm <i className="fas fa-angle-down" /> </a>
                 <ul className="child">
-                    {/* {props.category.map( item => {
-                        <li><a href="">{item.name}</a></li>
-                    })} */}
+                    {categorys.map( item => {
+                        return <li><a href={`/category/${item._id}`}>{item.name}</a></li>
+                    })}
                     {/* <li><a href="#"> Menu 1 <i className="fas fa-angle-right" /> </a>
                         <ul className="child2">
                             <li><a href="#">Menu</a></li>

@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { getAllCategory } from '../../../api/category';
 import { TypeCategory } from '../../../types/category';
 import { TypeProduct } from '../../../types/products'
 
@@ -9,6 +10,14 @@ type Props = {
 }
 
 const ProductList = (props: Props) => {
+  // const [category, setCategory] = useState<TypeCategory[]>([]);
+  // useEffect(() => {
+  //   const getCategory = async () => {
+  //     const { data } = await getAllCategory();
+  //     setCategory(data);
+  //   }
+  //   getCategory();
+  // }, []);
   return (
     <div className='table_product_admin'>
       <h2>Danh sách Products</h2>
