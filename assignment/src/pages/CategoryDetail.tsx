@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { read } from '../api/category';
+import { list } from '../api/product';
 import { TypeCategory } from '../types/category';
+import { TypeProduct } from '../types/products';
 
 type Props = {}
 
@@ -11,11 +13,20 @@ type Props = {}
 const CategoryDetail = (props: Props) => {
     const { id } = useParams();
     const [category, setCategory] = useState<TypeCategory[]>([]);
+    const [products, setProducts] = useState<TypeProduct[]>([]);
     useEffect(() => {
         const categoryDetail = async () => {
             const { data } = await read(id);
             setCategory(data);
         }
+        categoryDetail()
+    }, [])
+    useEffect(() => {
+        const getProducts = async () => {
+            const { data } = await list();
+            setProducts(data);
+        }
+        getProducts();
     }, [])
     return (
         <div>
@@ -24,7 +35,7 @@ const CategoryDetail = (props: Props) => {
                     <h2> New Arrival</h2>
                     {/*1*/}
                     <div className="row">
-                        {category.map(item => {
+                        {products.map(item => {
                             return <div className="col-3">
                             <div className="pro-item">
                                 <div className="pro-thumb">
@@ -33,7 +44,7 @@ const CategoryDetail = (props: Props) => {
                                 </div>
                                 <span className="small">New</span>
                                 <h4 className="pro-item-name">
-                                    <a href="#"></a>
+                                    <a href="#">{item.name}</a>
                                 </h4>
                                 <div className="pro-item-price">$20.00</div>
                             </div>

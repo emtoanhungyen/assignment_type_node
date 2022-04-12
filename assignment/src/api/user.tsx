@@ -15,3 +15,11 @@ export const get = (id: string| undefined) => {
     const url = `/users/${id}`;
     return instance.get(url);
 }
+export const getAll = () => {
+    const url = `/users`;
+    return instance.get(url);
+}
+export const removeuser = (id: string) => {
+    const url = `/users/${id}`;
+    return instance.delete(url);
+}

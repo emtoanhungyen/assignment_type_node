@@ -44,15 +44,15 @@ const ProductAdd =  (props: ProductAddProps) => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Name</label>
-          <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name" {...register('name', { required: true })} />
+          <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name" {...register('name', { required: true } )} />
         </div>
         <div className="form-group">
           <label htmlFor="exampleInputPassword1">Price</label>
-          <input type="number" className="form-control" id="exampleInputPassword1" placeholder="Price" {...register('price')} />
+          <input type="number" className="form-control" id="exampleInputPassword1" placeholder="Price" {...register('price', { required: true} )} />
         </div>
         <div className="form-group">
           <label htmlFor="exampleInputPassword1">Detail</label>
-          <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Details" {...register('details')} />
+          <input type="text" className="form-control" id="exampleInputPassword1" placeholder="Details" {...register('details', { required: true} )} />
         </div>
         <div className="form-group">
           <label htmlFor="exampleInputPassword1">Category</label>

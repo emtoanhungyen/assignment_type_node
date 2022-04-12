@@ -34,6 +34,13 @@ const LayoutAdmin = (props: Props) => {
                                     <li><a href="/admin/categorys">List</a></li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="/admin/users">User </a>
+                                <ul className="child">
+                                    <li><a href="/admin/users/add">Add</a></li>
+                                    <li><a href="/admin/users">List</a></li>
+                                </ul>
+                            </li>
                         </ul>
                         {/* CART*/}
                         <div className="cart-box">

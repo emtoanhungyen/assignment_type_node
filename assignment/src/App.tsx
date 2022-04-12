@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Navigate, NavLink, Route, Routes } from 'react-router-dom'
 import { getAllCategory, postCategory, removeCate, updateCategory } from './api/category'
 import { add, list, remove, update } from './api/product'
-import { dangky } from './api/user'
+import { dangky, getAll, removeuser } from './api/user'
 import PrivteRoute from './components/PrivteRoute'
 import CategoryAdd from './pages/admin/category/CategoryAdd'
 import CategoryEdit from './pages/admin/category/CategoryEdit'
@@ -11,6 +11,7 @@ import Dashboard from './pages/admin/Dashboard'
 import ProductAdd from './pages/admin/product/ProductAdd'
 import ProductEdit from './pages/admin/product/ProductEdit'
 import ProductList from './pages/admin/product/ProductList'
+import UserList from './pages/admin/user/UserList'
 import CategoryDetail from './pages/CategoryDetail'
 import Home from './pages/Home'
 import LayoutAdmin from './pages/layout/LayoutAdmin'
@@ -47,6 +48,14 @@ function App() {
     getCategory();
   }, []);
 
+  useEffect(() => {
+    const getUser = async () => {
+      const { data } = await getAll();
+      setUsers(data);
+    };
+    getUser();
+  }, []);
+
   // Products
   const addProduct = async (product: TypeProduct) => {
     const { data } = await add(product);
@@ -68,6 +77,14 @@ function App() {
   const onHandleSignup = async (user: TypeUser) => {
     const { data } = await dangky(user);
     setUsers([...users, data]);
+  }
+  const removeUser = (id: string) => {
+    const confirm = window.confirm('Bạn chắc chắn muốn xóa?');
+    if (confirm) {
+      removeuser(id);
+      //reRender
+      setUsers(users.filter(item => item._id !== id));
+    }
   }
   // Category
   const addCategory = async (category: TypeCategory) => {
@@ -127,6 +144,10 @@ function App() {
               <Route path='add' element={<CategoryAdd onAdd={addCategory} />} />
               <Route path=':id/edit' element={<CategoryEdit update={updateCate} />} />
             </Route>
+
+            <Route path='users' >
+              <Route index element={<UserList user={users} onRemove={removeUser} />} />
+            </Route> 
           </Route>
           {/* Router đăng ký đăng nhập */}
           <Route path='login' element={<Login />} />

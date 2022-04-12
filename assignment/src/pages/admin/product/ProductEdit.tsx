@@ -60,11 +60,11 @@ const ProductEdit = (props: ProductEditProps) => {
             </div>
             <div>
                 <label>Price</label>
-                <input type="number" placeholder="Price" {...register('price', { maxLength: 9 })} />
+                <input type="number" placeholder="Price" {...register('price', { required: true, maxLength: 9 })} />
             </div>
             <div>
                 <label>Detail</label>
-                <input type="text" placeholder="Detail" {...register('details', { minLength: 5 })} />
+                <input type="text" placeholder="Detail" {...register('details', { required: true, minLength: 5 })} />
             </div>
             <div className="form-group">
                 <label htmlFor="exampleInputPassword1">Category</label>
