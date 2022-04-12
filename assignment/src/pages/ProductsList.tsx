@@ -4,7 +4,8 @@ import { TypeProduct } from '../types/products'
 
 type Props = {
     product: TypeProduct[],
-    category: TypeCategory[]
+    category: TypeCategory[],
+    onCart: (id: string) => void
 }
 
 const ProductsList = (props: Props) => {
@@ -64,7 +65,7 @@ const ProductsList = (props: Props) => {
                                         <div key={index} className="pro-item">
                                             <div className="pro-thumb">
                                                 <img src="https://res.cloudinary.com/dd0io3fh2/image/upload/v1648880076/a_ossmvn.png" />
-                                                <a href="#" className="btn btn-sm"> add to cart</a>
+                                                <a href="#" className="btn btn-sm"> <button type='submit'>add to cart</button> </a>
                                             </div>
                                             <span className="small">New</span>
                                             <h4 className="pro-item-name">
